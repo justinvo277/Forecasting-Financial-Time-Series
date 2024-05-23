@@ -5,6 +5,8 @@ from selenium.webdriver.common.by import By
 import openpyxl
 import csv
 
+#nguyenxuanquangisme
+
 def crawl_data(num_page):
 
     #Crawl data on website cafef, num_page is number of pages that you want to crawl#
