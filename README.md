@@ -8,8 +8,8 @@
 ```sh
 def example_function(images:torch.tensor, alpha:float=1.0) -> torch.tensor:
         """
-        Before CutMix/MixUp: images.shape = torch.Size([4, 3, 224, 224]), labels.shape = torch.Size([4])
-        After CutMix/MixUp: images.shape = torch.Size([4, 3, 224, 224]), labels.shape = torch.Size([4, 100])
+        Before: images.shape = torch.Size([4, 3, 224, 224]), labels.shape = torch.Size([4])
+        After: images.shape = torch.Size([4, 3, 224, 224]), labels.shape = torch.Size([4, 100])
         """
         #### Todo something ###
         return tensor
