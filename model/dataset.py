@@ -3,7 +3,7 @@ import torch
 from torch.utils.data import Dataset
 import pandas as pd
 from typing import Tuple
-
+import utils
 
 class TransformerDataset(Dataset):
     """
@@ -45,7 +45,7 @@ class TransformerDataset(Dataset):
         super().__init__()
         self.indices = indices
         self.data = data
-        print("From get_src_trg: data size = {}".format(data.size()))
+        # print("From get_src_trg: data size = {}".format(data.size()))
         self.enc_seq_len = enc_seq_len
         self.dec_seq_len = dec_seq_len
         self.target_seq_len = target_seq_len
@@ -118,3 +118,31 @@ class TransformerDataset(Dataset):
         trg_y = sequence[-target_seq_len:]
         assert len(trg_y) == target_seq_len, "Length of trg_y does not match target sequence length"
         return src, trg, trg_y.squeeze(-1) # change size from [batch_size, target_seq_len, num_features] to [batch_size, target_seq_len] 
+
+
+if __name__ == "__main__":
+    # indices_data = utils.get_indices_entire_sequence(
+    #     data= torch.randn(120, 1),
+    #     window_size=35,
+    #     step_size=1
+    #     )
+
+    # train_data = TransformerDataset(
+    #     data=torch.rand(120, 1),
+    #     indices= indices_data,
+    #     enc_seq_len= 30,
+    #     dec_seq_len= 5,
+    #     target_seq_len= 5
+    #     )
+    
+    # # Iterate over the dataset and print the tensors
+    # for i in range(len(train_data)):
+    #     src, trg, trg_y = train_data[i]
+    #     print(f"Sample {i+1}:")
+    #     print(f"Source (src): \n{src}\n")
+    #     print(f"Target (trg): \n{trg}\n")
+    #     print(f"Target_y (trg_y): \n{trg_y}\n")
+        
+    #     # Limit the print to first 5 samples for brevity
+    #     if i >= 3:
+    #         break
