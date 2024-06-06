@@ -1,6 +1,6 @@
+import math
 import torch
 import torch.nn as nn
-import math
 from torch import nn, Tensor
 
 
@@ -50,13 +50,3 @@ class PositionalEncoder(nn.Module):
             x = x + self.pe[:x.size(0)]
 
         return self.dropout(x)
-    
-
-# if __name__ == "__main__":
-#     ps_e = PositionalEncoder(dropout=0.1, max_seq_len=5000, d_model=512, batch_first=True)
-#     x = torch.zeros(2, 100, 512)
-#     print(x.shape) 
-#     print(x)
-#     x_ps = ps_e(x)
-#     print(x_ps.shape)
-#     print(x_ps)

@@ -1,8 +1,8 @@
+import torch
 import torch.nn as nn
-import positional_encoder as pe
 from torch import nn, Tensor
 import torch.nn.functional as F
-import torch
+from uitls.positional_encoder import PositionalEncoder
 
 
 class TimeSeriesTransformer(nn.Module):
@@ -80,7 +80,7 @@ class TimeSeriesTransformer(nn.Module):
             )
 
         # Create positional encoder
-        self.positional_encoding_layer = pe.PositionalEncoder(
+        self.positional_encoding_layer = PositionalEncoder(
             d_model=dim_val,
             dropout=dropout_pos_enc
             )
@@ -191,24 +191,24 @@ class TimeSeriesTransformer(nn.Module):
         return decoder_output
  
 
-# if __name__ == "__main__":
-#     tt = TimeSeriesTransformer(
-#         input_size=10,
-#         dec_seq_len=5,
-#         batch_first=True,
-#         out_seq_len=10,
-#         dim_val=16,
-#         n_encoder_layers=2,
-#         n_decoder_layers=2,
-#         n_heads=4,
-#         dropout_encoder=0.1,
-#         dropout_decoder=0.1,
-#         dropout_pos_enc=0.1,
-#         dim_feedforward_encoder=32,
-#         dim_feedforward_decoder=32,
-#         num_predicted_features=1
-#         )
+if __name__ == "__main__":
+    tt = TimeSeriesTransformer(
+        input_size=10,
+        dec_seq_len=5,
+        batch_first=True,
+        out_seq_len=10,
+        dim_val=16,
+        n_encoder_layers=2,
+        n_decoder_layers=2,
+        n_heads=4,
+        dropout_encoder=0.1,
+        dropout_decoder=0.1,
+        dropout_pos_enc=0.1,
+        dim_feedforward_encoder=32,
+        dim_feedforward_decoder=32,
+        num_predicted_features=1
+        )
     
-#     src = torch.rand((2, 15, 10))
-#     tgt = torch.rand((2, 5, 1))
-#     output = tt(src, tgt)
+    src = torch.rand((2, 15, 10))
+    tgt = torch.rand((2, 5, 1))
+    output = tt(src, tgt)
