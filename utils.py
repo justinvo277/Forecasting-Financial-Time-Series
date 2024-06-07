@@ -6,6 +6,7 @@ from pathlib import Path
 from torch import nn, Tensor
 from typing import Optional, Any, Union, Callable, Tuple
 
+
 def generate_square_subsequent_mask(dim1: int, dim2: int) -> Tensor:
     """
     Generates an upper-triangular matrix of -inf, with zeros on diag.
@@ -214,6 +215,6 @@ def to_numeric_and_downcast_data(df: pd.DataFrame):
 
 
 # if __name__ == "__main__":
-#     read_data = read_data(data_dir="D:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\craw_data\data",
-#                         timestamp_col_name="Ngày")
+#     read_data = read_data(data_dir="D:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\craw_data\data_csv",
+#                           timestamp_col_name="Ngày")
 #     print(read_data)

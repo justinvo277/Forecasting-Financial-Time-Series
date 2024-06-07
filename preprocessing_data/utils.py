@@ -2,7 +2,9 @@ import os
 import pandas as pd
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
-def format_Dataframes(data_path:str=None, type_file:str="csv") -> pd.DataFrame:
+
+def format_Dataframes(data_path:str=None, type_file:str="csv",
+                      timestamp_col_name: str="Ngày") -> pd.DataFrame:
 
     '''
     data_path: Dataset path.
@@ -79,7 +81,10 @@ def preprocessing_dataframe(dataFrame: pd.DataFrame, fillna: str="mean", scale: 
     tmp_scaler = scaler.fit_transform(dataFrame)
     dataFrame =  pd.DataFrame(tmp_scaler, columns=dataFrame.columns)
 
-    tmp_dataFrame = pd.concat([tmp_dataFrame_day, tmp_dataFrame_name], axis=1)
-    dataFrame = pd.concat([tmp_dataFrame, dataFrame], axis=1)
-    
+    # tmp_dataFrame = pd.concat([tmp_dataFrame_day, tmp_dataFrame_name], axis=1)
+    dataFrame = pd.concat([tmp_dataFrame_day, dataFrame], axis=1)
+    dataFrame.set_index("Ngày", inplace=True)
+    dataFrame.sort_values(by="Ngày", inplace=True)
+
     return dataFrame
+
