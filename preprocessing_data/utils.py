@@ -3,8 +3,7 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
 
-def format_Dataframes(data_path:str=None, type_file:str="csv",
-                      timestamp_col_name: str="Ngày") -> pd.DataFrame:
+def format_Dataframes(data_path:str=None, type_file:str="csv") -> pd.DataFrame:
 
     '''
     data_path: Dataset path.

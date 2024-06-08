@@ -10,7 +10,6 @@ from transformer_model import TimeSeriesTransformer
 from preprocessing_data.utils import format_Dataframes, preprocessing_dataframe
 from utils import get_indices_entire_sequence, generate_square_subsequent_mask, train_loop, validation_loop
 
-
 parser = argparse.ArgumentParser(description="Config")
 parser.add_argument("--data_path", type=str, help="Path of dataset", default="D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\craw_data\FPT_stock.xlsx")
 parser.add_argument("--log_path", type=str, help="save log for training", default=r"D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\log")
