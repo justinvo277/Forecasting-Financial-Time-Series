@@ -2,10 +2,88 @@ import os
 import torch
 import numpy as np
 import pandas as pd
+import torch.utils
+from tqdm import tqdm
 from pathlib import Path
 from torch import nn, Tensor
 from typing import Optional, Any, Union, Callable, Tuple
 
+
+def train_loop(model: torch.nn, datatrain: torch.utils.data.Dataset, opt: torch.optim, criterion: dict, 
+    epoch: int, path_log: str, src_mask: torch.tensor, tgt_mask: torch.tensor, device: torch.cuda) -> dict:
+
+    loop = tqdm(datatrain, leave=True)
+    total_loss = 0
+
+    for batch_idx, (src, trg, trg_y) in enumerate(loop):
+
+        src = src.float()
+        src = src.to(device)
+        trg = trg.float()
+        trg = trg.to(device)
+        trg_y = trg_y.float()
+        trg_y = trg_y.to(device)
+
+        opt.zero_grad()
+        output = model(src=src, tgt=trg, src_mask=src_mask, tgt_mask=tgt_mask)
+
+        loss = criterion(output, trg_y)
+        loss.backward()
+        opt.step()
+
+        total_loss += loss.item()
+        loss_iter_dict = {"MSE": loss.item()}
+        save_log(path_log,  loss_iter_dict, epoch, batch_idx)
+
+        loop.set_postfix(MSE=loss.item())
+        
+    total_loss /= len(datatrain)
+    total_loss_dict = {"MSE": total_loss}
+    save_log(path_log, total_loss_dict, epoch, len(datatrain), f"End  {epoch} epoch")
+
+    return total_loss_dict
+
+
+def validation_loop(model: torch.nn, datatrain: torch.utils.data.Dataset, criterion_list: dict, 
+    src_mask: torch.tensor, tgt_mask: torch.tensor, device: torch.cuda) -> dict:
+
+    loop = tqdm(datatrain, leave=True)
+    total_loss_dict = {}
+
+    for name, criterion in criterion_list:
+        total_loss_dict[name] = 0.0
+
+    for batch_idx, (src, trg, trg_y) in enumerate(loop):
+
+        src = src.float()
+        src = src.to(device)
+        trg = trg.float()
+        trg = trg.to(device)
+        trg_y = trg_y.float()
+        trg_y = trg_y.to(device)
+
+        output = model(src=src, tgt=trg, src_mask=src_mask, tgt_mask=tgt_mask)
+
+        for name, criterion in criterion_list:
+            loss = criterion(output, trg_y)
+            total_loss_dict[name] += loss.item()
+        
+    for name_loss in total_loss_dict:
+        total_loss_dict[name_loss] /= len(datatrain)
+
+    return total_loss_dict
+
+         
+def save_log(folder_log: str, loss_dict, epoch: int, iter: int, mess: str = None) -> None:
+    log_name = "log" + str(epoch) + ".txt"
+    path_log = os.path.join(folder_log, log_name)
+
+    with open(path_log, 'a') as file:
+        if mess != None:
+            file.write(f"END {epoch} EPOCH")
+        file.write(f"ITERATION {iter} OF EPOCH {epoch} \n")
+        file.write("\n")
+        file.write(str(loss_dict))
 
 def generate_square_subsequent_mask(dim1: int, dim2: int) -> Tensor:
     """
