@@ -19,8 +19,8 @@ parser.add_argument("--num_rows", type=int, help="Rows of test dataset", default
 parser.add_argument("--batch_size", type=float, help="Batch size of dataset train, test and val", default=4)
 parser.add_argument("--learning_rate", type=float, help="Learning rate for training model", default=1e-5)
 parser.add_argument("--batch_first", type=bool, help="Type batch size of dataloader", default=True)
-parser.add_argument("--max_viz", type=int, help="After n epochs will validation model", default=1)
-parser.add_argument("--epochs", type=int, help="Epochs", default=150)
+parser.add_argument("--max_viz", type=int, help="After n epochs will validation model", default=5)
+parser.add_argument("--epochs", type=int, help="Epochs", default=300)
 args = parser.parse_args()
 
 
@@ -33,7 +33,6 @@ if __name__ == "__main__":
         DEVICE = torch.device('cuda:0')
     else:
         DEVICE = torch.device('cpu')
-    DEVICE = 'cpu'
 
     #Read and preprocessing dataset;
     dataset_raw = format_Dataframes(data_path=args.data_path, type_file=args.datafile_type)
@@ -43,7 +42,7 @@ if __name__ == "__main__":
     dataset_test = np.array(dataset_test)
 
     #Dataloader;
-    indices_data =get_indices_entire_sequence(data=dataset, window_size=35, step_size=1)
+    indices_data =get_indices_entire_sequence(data=dataset_train, window_size=35, step_size=1)
 
     dataloader_train = TransformerDataset(
         data=dataset_train,
@@ -92,13 +91,13 @@ if __name__ == "__main__":
     #Training model;
     for epoch in range(args.epochs):
 
-        print(f"[{epoch}/{args.epochs}: TRAINING PHASE]")
+        print(f"[{epoch+1}/{args.epochs}: TRAINING PHASE]")
         loss = train_loop(model=model, datatrain=train_data, opt=opt, criterion=mse_loss, 
         epoch=epoch, path_log=args.log_path, src_mask=src_mask, tgt_mask=tgt_mask, device=DEVICE)
         print(f"[{epoch}/{args.epochs}: TRAINING PHASE]: MSE: {loss['MSE']}")
 
         if epoch % args.max_viz == 0:
-            print(f"[{epoch}/{args.epochs}: VALIDATION PHASE]")
+            print(f"[{epoch+1}/{args.epochs}: VALIDATION PHASE]")
             loss_dict = validation_loop(model=model, datatrain=test_data, criterion_list=criterion_list, 
             src_mask=src_mask, tgt_mask=tgt_mask, device=DEVICE)
             print(f"[{epoch}/{args.epochs}: VALIDATION PHASE]: MSE: {loss_dict['mse']} | MAE: {loss_dict['mae']} | HUBER: {loss_dict['huber']}")
