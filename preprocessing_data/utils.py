@@ -87,3 +87,10 @@ def preprocessing_dataframe(dataFrame: pd.DataFrame, fillna: str="mean", scale: 
 
     return dataFrame
 
+
+def split_data(df: pd.DataFrame, num_rows: int) -> tuple:
+
+    df_train = df.iloc[:-num_rows]
+    df_test =  df.iloc[-num_rows:]
+
+    return df_train, df_test

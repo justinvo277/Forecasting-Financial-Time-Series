@@ -7,13 +7,14 @@ import pandas as pd
 from torch.utils.data import DataLoader
 from dataloader import TransformerDataset
 from transformer_model import TimeSeriesTransformer
-from preprocessing_data.utils import format_Dataframes, preprocessing_dataframe
+from preprocessing_data.utils import format_Dataframes, preprocessing_dataframe, split_data
 from utils import get_indices_entire_sequence, generate_square_subsequent_mask, train_loop, validation_loop
 
 parser = argparse.ArgumentParser(description="Config")
 parser.add_argument("--data_path", type=str, help="Path of dataset", default="D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\craw_data\FPT_stock.xlsx")
 parser.add_argument("--log_path", type=str, help="save log for training", default=r"D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\log")
 parser.add_argument("--datafile_type", type=str, help="csv, xlsx, ....", default="xlsx")
+parser.add_argument("--num_rows", type=int, help="Rows of test dataset", default=720)
 
 parser.add_argument("--batch_size", type=float, help="Batch size of dataset train, test and val", default=4)
 parser.add_argument("--learning_rate", type=float, help="Learning rate for training model", default=1e-5)
@@ -37,17 +38,28 @@ if __name__ == "__main__":
     #Read and preprocessing dataset;
     dataset_raw = format_Dataframes(data_path=args.data_path, type_file=args.datafile_type)
     dataset = preprocessing_dataframe(dataset_raw)
-    dataset = np.array(dataset)
+    dataset_train, dataset_test = split_data(dataset, num_rows=args.num_rows)
+    dataset_train = np.array(dataset_train)
+    dataset_test = np.array(dataset_test)
 
     #Dataloader;
     indices_data =get_indices_entire_sequence(data=dataset, window_size=35, step_size=1)
-    dataloader = TransformerDataset(
-        data=dataset,
+
+    dataloader_train = TransformerDataset(
+        data=dataset_train,
         indices= indices_data,
         enc_seq_len= 30,
         dec_seq_len= 5,
         target_seq_len= 5)
-    train_data = DataLoader(dataset=dataloader, batch_size=args.batch_size)
+    train_data = DataLoader(dataset=dataloader_train, batch_size=args.batch_size)
+
+    dataloader_test = TransformerDataset(
+        data=dataset_train,
+        indices= indices_data,
+        enc_seq_len= 30,
+        dec_seq_len= 5,
+        target_seq_len= 5)
+    test_data = DataLoader(dataset=dataloader_test, batch_size=args.batch_size)
 
     #Model
     model = TimeSeriesTransformer(
@@ -87,6 +99,6 @@ if __name__ == "__main__":
 
         if epoch % args.max_viz == 0:
             print(f"[{epoch}/{args.epochs}: VALIDATION PHASE]")
-            loss_dict = validation_loop(model=model, datatrain=train_data, criterion_list=criterion_list, 
+            loss_dict = validation_loop(model=model, datatrain=test_data, criterion_list=criterion_list, 
             src_mask=src_mask, tgt_mask=tgt_mask, device=DEVICE)
             print(f"[{epoch}/{args.epochs}: VALIDATION PHASE]: MSE: {loss_dict['mse']} | MAE: {loss_dict['mae']} | HUBER: {loss_dict['huber']}")
