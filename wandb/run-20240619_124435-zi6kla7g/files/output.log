@@ -1,0 +1,69 @@
+
+  0%|                                                                                          | 0/897 [00:00<?, ?it/s]
+  0%|                                                                                          | 0/897 [00:00<?, ?it/s]D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\functional.py:5504: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at ..\aten\src\ATen\native\transformers\cuda\sdp_utils.cpp:455.)
+  attn_output = scaled_dot_product_attention(q, k, v, attn_mask, dropout_p, is_causal)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 78%|████████████████████████████████████████████████████               | 697/897 [01:02<00:17, 11.23it/s, MSE=0.00862]
+Traceback (most recent call last):
+  File "D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\train.py", line 110, in <module>
+    loss = train_loop(model=model, datatrain=train_data, opt=opt, criterion=mse_loss,
+  File "D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\utils.py", line 28, in train_loop
+    output = model(src=src, tgt=trg, src_mask=src_mask, tgt_mask=tgt_mask)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\transformer_model.py", line 163, in forward
+    src = self.encoder( # src shape: [batch_size, enc_seq_len, dim_val]
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\transformer.py", line 415, in forward
+    output = mod(output, src_mask=mask, is_causal=is_causal, src_key_padding_mask=src_key_padding_mask_for_layers)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\transformer.py", line 749, in forward
+    x = self.norm1(x + self._sa_block(x, src_mask, src_key_padding_mask, is_causal=is_causal))
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\transformer.py", line 757, in _sa_block
+    x = self.self_attn(x, x, x,
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\activation.py", line 1266, in forward
+    attn_output, attn_output_weights = F.multi_head_attention_forward(
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\functional.py", line 5364, in multi_head_attention_forward
+    q, k, v = _in_projection_packed(query, key, value, in_proj_weight, in_proj_bias)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\functional.py", line 4884, in _in_projection_packed
+    proj = linear(q, w, b)
+KeyboardInterrupt

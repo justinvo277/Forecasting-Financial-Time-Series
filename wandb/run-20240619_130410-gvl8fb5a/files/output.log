@@ -1,0 +1,406 @@
+
+[1/300: TRAINING PHASE]
+  0%|                                                                                          | 0/897 [00:00<?, ?it/s]D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\functional.py:5504: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at ..\aten\src\ATen\native\transformers\cuda\sdp_utils.cpp:455.)
+  attn_output = scaled_dot_product_attention(q, k, v, attn_mask, dropout_p, is_causal)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 98%|█████████████████████████████████████████████████████████████████▉ | 882/897 [01:22<00:01, 13.05it/s, MSE=0.00495]
+[RESULT TRAINING PHASE]: MSE: 0.024844862101755315
+100%|████████████████████████████████████████████████████████████████████| 897/897 [01:23<00:00, 10.79it/s, MSE=0.0107]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 98%|██████████████████████████████████████████████████████████████████▊ | 882/897 [01:11<00:01, 14.53it/s, MSE=0.0031]
+[RESULT TRAINING PHASE]: MSE: 0.0056938455261522644
+100%|███████████████████████████████████████████████████████████████████| 897/897 [01:12<00:00, 12.39it/s, MSE=0.00189]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████| 897/897 [01:11<00:00, 12.49it/s, MSE=0.00214]
+  0%|                                                                             | 0/897 [00:00<?, ?it/s, MSE=0.00622]
+[RESULT TRAINING PHASE]: MSE: 0.002726919262892169
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 99%|███████████████████████████████████████████████████████████████████▌| 891/897 [01:04<00:00, 12.87it/s, MSE=0.0014]
+[RESULT TRAINING PHASE]: MSE: 0.0016291508757197294
+100%|███████████████████████████████████████████████████████████████████| 897/897 [01:04<00:00, 13.82it/s, MSE=0.00103]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 98%|████████████████████████████████████████████████████████████████▉ | 882/897 [01:05<00:01, 13.25it/s, MSE=0.000842]
+[RESULT TRAINING PHASE]: MSE: 0.0010920537480528475
+100%|███████████████████████████████████████████████████████████████████| 897/897 [01:06<00:00, 13.43it/s, MSE=0.00114]
+
+100%|████████████████████████████████████████████████████████████████████████████████| 172/172 [00:04<00:00, 38.81it/s]
+  1%|▍                                                                   | 6/897 [00:00<01:04, 13.73it/s, MSE=0.000717]
+[RESULT VALIDATION PHASE]: MSE: 0.001218030022099874 | MAE: 0.027723848814318 | HUBER: 0.000609015011049937
+Validation loss decreased (inf --> 0.001218).  Saving model ...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████████████████████████████████████████████████████████████| 897/897 [01:16<00:00, 11.68it/s, MSE=0.000557]
+  0%|                                                                             | 0/897 [00:00<?, ?it/s, MSE=0.00287]
+[RESULT TRAINING PHASE]: MSE: 0.0007785981094965362
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 99%|█████████████████████████████████████████████████████████████████▏| 886/897 [01:14<00:00, 12.98it/s, MSE=0.000326]
+[RESULT TRAINING PHASE]: MSE: 0.0005790170409491232
+100%|██████████████████████████████████████████████████████████████████| 897/897 [01:15<00:00, 11.91it/s, MSE=0.000186]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████▋| 893/897 [01:07<00:00, 14.43it/s, MSE=0.000222]
+[RESULT TRAINING PHASE]: MSE: 0.0004539921741192608
+100%|██████████████████████████████████████████████████████████████████| 897/897 [01:08<00:00, 13.14it/s, MSE=0.000521]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████| 897/897 [01:09<00:00, 12.90it/s, MSE=0.00019]
+  0%|▎                                                                   | 4/897 [00:00<01:06, 13.40it/s, MSE=0.000443]
+[RESULT TRAINING PHASE]: MSE: 0.00037459178266456555
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 74%|████████████████████████████████████████████████▋                 | 662/897 [00:53<00:19, 12.28it/s, MSE=0.000187]
+Traceback (most recent call last):
+  File "D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\train.py", line 110, in <module>
+    loss = train_loop(model=model, datatrain=train_data, opt=opt, criterion=mse_loss,
+  File "D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\utils.py", line 28, in train_loop
+    output = model(src=src, tgt=trg, src_mask=src_mask, tgt_mask=tgt_mask)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\transformer_model.py", line 178, in forward
+    decoder_output = self.decoder(
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\transformer.py", line 494, in forward
+    output = mod(output, memory, tgt_mask=tgt_mask,
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\transformer.py", line 892, in forward
+    x = self.norm3(x + self._ff_block(x))
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\transformer.py", line 918, in _ff_block
+    x = self.linear2(self.dropout(self.activation(self.linear1(x))))
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\linear.py", line 116, in forward
+    return F.linear(input, self.weight, self.bias)
+KeyboardInterrupt

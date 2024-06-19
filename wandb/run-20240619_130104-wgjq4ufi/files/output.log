@@ -1,0 +1,81 @@
+
+[1/300: TRAINING PHASE]
+  0%|                                                                                          | 0/897 [00:00<?, ?it/s]D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\functional.py:5504: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at ..\aten\src\ATen\native\transformers\cuda\sdp_utils.cpp:455.)
+  attn_output = scaled_dot_product_attention(q, k, v, attn_mask, dropout_p, is_causal)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 98%|███████████████████████████████████████████████████████████████████▉ | 883/897 [01:02<00:00, 16.63it/s, MSE=0.014]
+[RESULT TRAINING PHASE]: MSE: 0.024337274509865205
+100%|████████████████████████████████████████████████████████████████████| 897/897 [01:03<00:00, 14.20it/s, MSE=0.0101]
+
+ 78%|██████████████████████████████████████████████████████████████▊                 | 135/172 [00:02<00:00, 50.07it/s]
+[RESULT VALIDATION PHASE]: MSE: 0.008810127137748654 | MAE: 0.07420493584386138 | HUBER: 0.004405063568874327
+Validation loss decreased (inf --> 0.008810).  Saving model ...
+100%|████████████████████████████████████████████████████████████████████████████████| 172/172 [00:03<00:00, 49.13it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 93%|█████████████████████████████████████████████████████████████▉     | 830/897 [00:59<00:04, 13.97it/s, MSE=0.00347]
+Traceback (most recent call last):
+  File "D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\train.py", line 110, in <module>
+    loss = train_loop(model=model, datatrain=train_data, opt=opt, criterion=mse_loss,
+  File "D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\utils.py", line 31, in train_loop
+    loss.backward()
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\_tensor.py", line 525, in backward
+    torch.autograd.backward(
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\autograd\__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\autograd\graph.py", line 744, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

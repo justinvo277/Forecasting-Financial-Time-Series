@@ -3,3 +3,4 @@ seaborn
 matplotlib
 tensorflow
 scikit-learn
+wandb

@@ -1,0 +1,96 @@
+
+[1/300: TRAINING PHASE]
+  0%|                                                                                          | 0/897 [00:00<?, ?it/s]D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\functional.py:5504: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at ..\aten\src\ATen\native\transformers\cuda\sdp_utils.cpp:455.)
+  attn_output = scaled_dot_product_attention(q, k, v, attn_mask, dropout_p, is_causal)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 99%|██████████████████████████████████████████████████████████████████ | 884/897 [01:01<00:00, 16.99it/s, MSE=0.00978]
+[1/300: TRAINING PHASE]: MSE: 0.02295142476168672
+100%|███████████████████████████████████████████████████████████████████| 897/897 [01:02<00:00, 14.31it/s, MSE=0.00801]
+
+ 88%|██████████████████████████████████████████████████████████████████████▏         | 151/172 [00:03<00:00, 44.74it/s]
+[1/300: VALIDATION PHASE]: MSE: 0.00857112939377467 | MAE: 0.07366807373283907 | HUBER: 0.004285564696887335
+Validation loss decreased (inf --> 0.008571).  Saving model ...
+100%|████████████████████████████████████████████████████████████████████████████████| 172/172 [00:03<00:00, 45.72it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 97%|██████████████████████████████████████████████████████████████████  | 872/897 [00:54<00:01, 17.63it/s, MSE=0.0059]
+[2/300: TRAINING PHASE]: MSE: 0.005357787503893077
+100%|███████████████████████████████████████████████████████████████████| 897/897 [00:55<00:00, 16.15it/s, MSE=0.00315]
+
+ 61%|████████████████████████████████████████████████▊                               | 105/172 [00:02<00:01, 47.61it/s]
+[2/300: VALIDATION PHASE]: MSE: 0.0038126150503494712 | MAE: 0.049499904758535156 | HUBER: 0.0019063075251747356
+Validation loss decreased (0.008571 --> 0.003813).  Saving model ...
+100%|████████████████████████████████████████████████████████████████████████████████| 172/172 [00:03<00:00, 49.24it/s]
+
+
+
+
+
+
+
+
+
+ 33%|█████████████████████▉                                             | 293/897 [00:19<00:39, 15.31it/s, MSE=0.00227]
+Traceback (most recent call last):
+  File "D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\train.py", line 110, in <module>
+    loss = train_loop(model=model, datatrain=train_data, opt=opt, criterion=mse_loss,
+  File "D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\utils.py", line 31, in train_loop
+    loss.backward()
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\_tensor.py", line 525, in backward
+    torch.autograd.backward(
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\autograd\__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\autograd\graph.py", line 744, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

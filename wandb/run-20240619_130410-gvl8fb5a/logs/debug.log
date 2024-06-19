@@ -1,0 +1,34 @@
+2024-06-19 13:04:10,206 INFO    MainThread:16140 [wandb_setup.py:_flush():76] Current SDK version is 0.17.2
+2024-06-19 13:04:10,206 INFO    MainThread:16140 [wandb_setup.py:_flush():76] Configure stats pid to 16140
+2024-06-19 13:04:10,206 INFO    MainThread:16140 [wandb_setup.py:_flush():76] Loading settings from C:\Users\MSI\.config\wandb\settings
+2024-06-19 13:04:10,206 INFO    MainThread:16140 [wandb_setup.py:_flush():76] Loading settings from D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\settings
+2024-06-19 13:04:10,206 INFO    MainThread:16140 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-06-19 13:04:10,206 INFO    MainThread:16140 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'train.py', 'program_abspath': 'D:\\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\\train.py', 'program': 'D:\\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\\train.py'}
+2024-06-19 13:04:10,206 INFO    MainThread:16140 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-06-19 13:04:10,207 INFO    MainThread:16140 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-06-19 13:04:10,207 INFO    MainThread:16140 [wandb_init.py:_log_setup():520] Logging user logs to D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240619_130410-gvl8fb5a\logs\debug.log
+2024-06-19 13:04:10,207 INFO    MainThread:16140 [wandb_init.py:_log_setup():521] Logging internal logs to D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240619_130410-gvl8fb5a\logs\debug-internal.log
+2024-06-19 13:04:10,207 INFO    MainThread:16140 [wandb_init.py:init():560] calling init triggers
+2024-06-19 13:04:10,207 INFO    MainThread:16140 [wandb_init.py:init():567] wandb.init called with sweep_config: {}
+config: {}
+2024-06-19 13:04:10,207 INFO    MainThread:16140 [wandb_init.py:init():610] starting backend
+2024-06-19 13:04:10,207 INFO    MainThread:16140 [wandb_init.py:init():614] setting up manager
+2024-06-19 13:04:10,210 INFO    MainThread:16140 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=spawn, using: spawn
+2024-06-19 13:04:10,212 INFO    MainThread:16140 [wandb_init.py:init():622] backend started and connected
+2024-06-19 13:04:10,216 INFO    MainThread:16140 [wandb_init.py:init():711] updated telemetry
+2024-06-19 13:04:10,277 INFO    MainThread:16140 [wandb_init.py:init():744] communicating run to backend with 90.0 second timeout
+2024-06-19 13:04:10,851 INFO    MainThread:16140 [wandb_run.py:_on_init():2402] communicating current version
+2024-06-19 13:04:13,369 INFO    MainThread:16140 [wandb_run.py:_on_init():2411] got version response 
+2024-06-19 13:04:13,369 INFO    MainThread:16140 [wandb_init.py:init():795] starting run threads in backend
+2024-06-19 13:04:13,920 INFO    MainThread:16140 [wandb_run.py:_console_start():2380] atexit reg
+2024-06-19 13:04:13,921 INFO    MainThread:16140 [wandb_run.py:_redirect():2235] redirect: wrap_raw
+2024-06-19 13:04:13,921 INFO    MainThread:16140 [wandb_run.py:_redirect():2300] Wrapping output streams.
+2024-06-19 13:04:13,921 INFO    MainThread:16140 [wandb_run.py:_redirect():2325] Redirects installed.
+2024-06-19 13:04:13,929 INFO    MainThread:16140 [wandb_init.py:init():838] run started, returning control to user process
+2024-06-19 13:04:13,929 INFO    MainThread:16140 [wandb_config.py:__setitem__():151] config set learning_rate = 1e-05 - <bound method Run._config_callback of <wandb.sdk.wandb_run.Run object at 0x000001A355AB4C70>>
+2024-06-19 13:04:13,929 INFO    MainThread:16140 [wandb_run.py:_config_callback():1382] config_cb learning_rate 1e-05 None
+2024-06-19 13:04:13,931 INFO    MainThread:16140 [wandb_config.py:__setitem__():151] config set epochs = 300 - <bound method Run._config_callback of <wandb.sdk.wandb_run.Run object at 0x000001A355AB4C70>>
+2024-06-19 13:04:13,931 INFO    MainThread:16140 [wandb_run.py:_config_callback():1382] config_cb epochs 300 None
+2024-06-19 13:04:13,931 INFO    MainThread:16140 [wandb_config.py:__setitem__():151] config set batch_size = 4 - <bound method Run._config_callback of <wandb.sdk.wandb_run.Run object at 0x000001A355AB4C70>>
+2024-06-19 13:04:13,931 INFO    MainThread:16140 [wandb_run.py:_config_callback():1382] config_cb batch_size 4 None
+2024-06-19 13:16:15,752 WARNING MsgRouterThr:16140 [router.py:message_loop():77] message_loop has been closed
