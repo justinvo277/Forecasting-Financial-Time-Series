@@ -1,0 +1,53 @@
+{
+    "os": "Windows-10-10.0.22631-SP0",
+    "python": "3.10.0",
+    "heartbeatAt": "2024-06-22T05:12:37.471087",
+    "startedAt": "2024-06-22T05:12:36.408235",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "D:\\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\\train.py",
+    "codePathLocal": "train.py",
+    "codePath": "train.py",
+    "git": {
+        "remote": "https://github.com/justinvo277/-DSP391m-Forecasting-Financial-Time-Series-With-Transformer.git",
+        "commit": "6af723fa74ae28066f1d033e29ae96eb57abb241"
+    },
+    "email": "truongvdnse161235@fpt.edu.vn",
+    "root": "D:/-DSP391m-Forecasting-Financial-Time-Series-With-Transformer",
+    "host": "DESKTOP-AARAALH",
+    "username": "MSI",
+    "executable": "D:\\Anaconda\\envs\\dsp391m\\python.exe",
+    "cpu_count": 6,
+    "cpu_count_logical": 12,
+    "cpu_freq": {
+        "current": 2592.0,
+        "min": 0.0,
+        "max": 2592.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2592.0,
+            "min": 0.0,
+            "max": 2592.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 215.00487899780273,
+            "used": 52.94690704345703
+        }
+    },
+    "gpu": "NVIDIA GeForce GTX 1660 Ti",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce GTX 1660 Ti",
+            "memory_total": 6442450944
+        }
+    ],
+    "memory": {
+        "total": 15.824447631835938
+    }
+}
