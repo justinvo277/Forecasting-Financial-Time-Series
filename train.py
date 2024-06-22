@@ -46,7 +46,7 @@ if __name__ == "__main__":
     #Read and preprocessing dataset;
     dataset_raw = format_Dataframes(data_path=args.data_path, type_file=args.datafile_type)
     dataset = preprocessing_dataframe(dataset_raw)
-    dataset = winsorize_dataframe(dataset)
+    dataset = remove_outliers(dataset)
     dataset_train, dataset_test = split_data(dataset, num_rows=args.num_rows)
     dataset_train = np.array(dataset_train)
     dataset_test = np.array(dataset_test)
