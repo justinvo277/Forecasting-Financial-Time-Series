@@ -1,0 +1,38 @@
+
+[1/300: TRAINING PHASE]
+
+
+
+
+
+
+
+
+
+ 94%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌       | 371/393 [00:19<00:01, 19.62it/s, MSE=0.0209]
+[RESULT TRAINING PHASE]: MSE: 0.037936985845803156
+[1/300: VALIDATION PHASE]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 393/393 [00:21<00:00, 18.70it/s, MSE=0.025]
+  0%|                                                                                                                                                          | 0/172 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "c:\Users\Cong\.conda\envs\idm\lib\runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "c:\Users\Cong\.conda\envs\idm\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "c:\Users\Cong\.vscode\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\__main__.py", line 39, in <module>
+    cli.main()
+  File "c:\Users\Cong\.vscode\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy/..\debugpy\server\cli.py", line 430, in main
+    run()
+  File "c:\Users\Cong\.vscode\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy/..\debugpy\server\cli.py", line 284, in run_file
+    runpy.run_path(target, run_name="__main__")
+  File "c:\Users\Cong\.vscode\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 321, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "c:\Users\Cong\.vscode\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 135, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "c:\Users\Cong\.vscode\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 124, in _run_code
+    exec(code, run_globals)
+  File "d:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\train.py", line 119, in <module>
+    loss_dict = run_encoder_decoder_inference(model=model, datatrain=test_data, forecast_window=5,
+  File "d:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\inference.py", line 35, in run_encoder_decoder_inference
+    for _ in range(forecast_window-1):
+IndexError: tuple index out of range

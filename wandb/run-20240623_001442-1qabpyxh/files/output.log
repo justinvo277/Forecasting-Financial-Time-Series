@@ -1,0 +1,44 @@
+
+[1/300: TRAINING PHASE]
+
+
+
+
+
+
+
+
+
+ 94%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌         | 370/393 [00:20<00:01, 19.48it/s, MSE=0.023]
+[RESULT TRAINING PHASE]: MSE: 0.037287034973521115
+[1/300: VALIDATION PHASE]
+Prediction_shape: torch.Size([4, 1, 1])
+Last_Predicted: torch.Size([4, 1, 1])
+Prediction_shape: torch.Size([4, 2, 1])
+Last_Predicted: torch.Size([4, 1, 1])
+Prediction_shape: torch.Size([4, 3, 1])
+Last_Predicted: torch.Size([4, 1, 1])
+Prediction_shape: torch.Size([4, 4, 1])
+Last_Predicted: torch.Size([4, 1, 1])
+Final_trg_shape: tensor([[[0.0162],
+         [0.0044],
+         [0.0060],
+         [0.0072],
+         [0.0076]],
+        [[0.0164],
+         [0.0183],
+         [0.0190],
+         [0.0190],
+         [0.0174]],
+        [[0.0176],
+         [0.0330],
+         [0.0330],
+         [0.0309],
+         [0.0334]],
+        [[0.0198],
+         [0.0355],
+         [0.0330],
+         [0.0363],
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 393/393 [00:21<00:00, 18.49it/s, MSE=0.0175]
+  0%|                                                                                                                                                                                      | 0/172 [00:00<?, ?it/s]c:\Users\Cong\.conda\envs\idm\lib\site-packages\torch\nn\modules\activation.py:1160: UserWarning: Converting mask without torch.bool dtype to bool; this will negatively affect performance. Prefer to use a boolean mask directly. (Triggered internally at C:\cb\pytorch_1000000000000\work\aten\src\ATen\native\transformers\attention.cpp:152.)
+  return torch._native_multi_head_attention(

@@ -1,0 +1,18 @@
+
+  6%|██████████▏                                                                                                                                                      | 25/393 [00:01<00:20, 18.39it/s, MSE=0.0859]
+
+
+
+
+
+
+
+
+
+ 90%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌               | 355/393 [00:19<00:02, 18.28it/s, MSE=0.0192]
+[RESULT TRAINING PHASE]: MSE: 0.03515391078310765
+[1/300: VALIDATION PHASE]
+Prediction_shape: torch.Size([4, 1, 1])
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 393/393 [00:21<00:00, 18.12it/s, MSE=0.0148]
+  0%|                                                                                                                                                                                      | 0/172 [00:00<?, ?it/s]c:\Users\Cong\.conda\envs\idm\lib\site-packages\torch\nn\modules\activation.py:1160: UserWarning: Converting mask without torch.bool dtype to bool; this will negatively affect performance. Prefer to use a boolean mask directly. (Triggered internally at C:\cb\pytorch_1000000000000\work\aten\src\ATen\native\transformers\attention.cpp:152.)
+  return torch._native_multi_head_attention(

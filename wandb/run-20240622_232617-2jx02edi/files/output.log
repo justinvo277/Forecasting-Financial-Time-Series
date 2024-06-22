@@ -1,0 +1,21 @@
+
+  7%|████████████▌                                                                                                                                                                    | 28/393 [00:01<00:17, 20.60it/s, MSE=0.0186]
+
+
+
+
+
+
+
+
+ 95%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌         | 372/393 [00:18<00:00, 21.58it/s, MSE=0.0208]
+[RESULT TRAINING PHASE]: MSE: 0.04142982074777589
+[1/300: VALIDATION PHASE]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 393/393 [00:19<00:00, 20.67it/s, MSE=0.0178]
+  0%|                                                                                                                                                                                                      | 0/172 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "d:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\train.py", line 119, in <module>
+    loss_dict = run_encoder_decoder_inference(model=model, datatrain=test_data, forecast_window=5,
+  File "d:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\inference.py", line 41, in run_encoder_decoder_inference
+    tgt_mask = utils.generate_square_subsequent_mask(
+TypeError: generate_square_subsequent_mask() got an unexpected keyword argument 'device'

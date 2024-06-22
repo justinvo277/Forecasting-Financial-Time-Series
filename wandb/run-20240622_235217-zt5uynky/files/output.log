@@ -1,0 +1,40 @@
+
+[1/300: TRAINING PHASE]
+
+
+
+
+
+
+
+
+
+ 99%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋ | 389/393 [00:19<00:00, 20.87it/s, MSE=0.0192]
+[RESULT TRAINING PHASE]: MSE: 0.03497489826853266
+[1/300: VALIDATION PHASE]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 393/393 [00:20<00:00, 19.51it/s, MSE=0.0253]
+  0%|                                                                                                                                                        | 0/172 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "d:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\train.py", line 119, in <module>
+    loss_dict = run_encoder_decoder_inference(model=model, datatrain=test_data, forecast_window=5,
+  File "d:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\inference.py", line 51, in run_encoder_decoder_inference
+    prediction = model(src, trg, src_mask, tgt_mask)
+  File "C:\Users\Cong\.conda\envs\idm\lib\site-packages\torch\nn\modules\module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "d:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\transformer_model.py", line 178, in forward
+    decoder_output = self.decoder(
+  File "C:\Users\Cong\.conda\envs\idm\lib\site-packages\torch\nn\modules\module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\Cong\.conda\envs\idm\lib\site-packages\torch\nn\modules\transformer.py", line 369, in forward
+    output = mod(output, memory, tgt_mask=tgt_mask,
+  File "C:\Users\Cong\.conda\envs\idm\lib\site-packages\torch\nn\modules\module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\Cong\.conda\envs\idm\lib\site-packages\torch\nn\modules\transformer.py", line 716, in forward
+    x = self.norm1(x + self._sa_block(x, tgt_mask, tgt_key_padding_mask, tgt_is_causal))
+  File "C:\Users\Cong\.conda\envs\idm\lib\site-packages\torch\nn\modules\transformer.py", line 725, in _sa_block
+    x = self.self_attn(x, x, x,
+  File "C:\Users\Cong\.conda\envs\idm\lib\site-packages\torch\nn\modules\module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\Cong\.conda\envs\idm\lib\site-packages\torch\nn\modules\activation.py", line 1160, in forward
+    return torch._native_multi_head_attention(
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu! (when checking argument for argument mask in method wrapper_CUDA___native_multi_head_attention)

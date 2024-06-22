@@ -9,18 +9,20 @@ from dataloader import TransformerDataset
 from transformer_model import TimeSeriesTransformer
 from preprocessing_data.utils import format_Dataframes, preprocessing_dataframe, split_data, remove_outliers, winsorize_dataframe
 from utils import get_indices_entire_sequence, generate_square_subsequent_mask, train_loop, validation_loop, EarlyStopping
+from inference import run_encoder_decoder_inference
+
 
 parser = argparse.ArgumentParser(description="Config")
-parser.add_argument("--data_path", type=str, help="Path of dataset", default="D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\craw_data\FPT_stock.xlsx")
-parser.add_argument("--log_path", type=str, help="save log for training", default=r"D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\log")
-parser.add_argument("--checkpoint", type=str, help="folder to save checkpoint", default=r"D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\checkpoint")
+parser.add_argument("--data_path", type=str, help="Path of dataset", default="D:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\craw_data\FPT_stock.xlsx")
+parser.add_argument("--log_path", type=str, help="save log for training", default=r"D:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\log")
+parser.add_argument("--checkpoint", type=str, help="folder to save checkpoint", default=r"D:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\checkpoint")
 parser.add_argument("--datafile_type", type=str, help="csv, xlsx, ....", default="xlsx")
 parser.add_argument("--num_rows", type=int, help="Rows of test dataset", default=720)
 
 parser.add_argument("--batch_size", type=float, help="Batch size of dataset train, test and val", default=4)
 parser.add_argument("--learning_rate", type=float, help="Learning rate for training model", default=1e-5)
 parser.add_argument("--batch_first", type=bool, help="Type batch size of dataloader", default=True)
-parser.add_argument("--max_viz", type=int, help="After n epochs will validation model", default=5)
+parser.add_argument("--max_viz", type=int, help="After n epochs will validation model", default=4)
 parser.add_argument("--num_predicted_features", type=int, help="number of output", default=1)
 parser.add_argument("--epochs", type=int, help="Epochs", default=300)
 args = parser.parse_args()
@@ -36,7 +38,7 @@ if __name__ == "__main__":
     else:
         DEVICE = torch.device('cpu')
 
-    wandb.login()
+    wandb.login(key="39af6effd799f393f92bb9698e6e29404041b445")
     wandb.init(project="DSP391m-project")
     config = wandb.config
     config.learning_rate = args.learning_rate
@@ -114,8 +116,8 @@ if __name__ == "__main__":
 
         if (epoch+1) % args.max_viz == 0:
             print(f"[{epoch+1}/{args.epochs}: VALIDATION PHASE]")
-            loss_dict = validation_loop(model=model, datatrain=test_data, criterion_list=criterion_list, 
-            src_mask=src_mask, tgt_mask=tgt_mask, device=DEVICE)
+            loss_dict = run_encoder_decoder_inference(model=model, datatrain=test_data, forecast_window=5,
+            criterion_list=criterion_list, device=DEVICE)
             val_loss = loss_dict['mse']
             print(f"[RESULT VALIDATION PHASE]: MSE: {loss_dict['mse']} | MAE: {loss_dict['mae']} | HUBER: {loss_dict['huber']}")
             early_stopping(val_loss, model)
