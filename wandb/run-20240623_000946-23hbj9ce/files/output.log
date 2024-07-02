@@ -1,0 +1,25 @@
+
+[1/300: TRAINING PHASE]
+
+
+
+
+
+
+
+
+
+
+ 92%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊            | 363/393 [00:21<00:01, 19.00it/s, MSE=0.0171]
+[RESULT TRAINING PHASE]: MSE: 0.03615802767598864
+[1/300: VALIDATION PHASE]
+Prediction_shape: torch.Size([4, 1, 1])
+Last_Predicted: torch.Size([4, 1, 1])
+Prediction_shape: torch.Size([4, 2, 1])
+Last_Predicted: torch.Size([4, 1, 1])
+Prediction_shape: torch.Size([4, 3, 1])
+Last_Predicted: torch.Size([4, 1, 1])
+Prediction_shape: torch.Size([4, 4, 1])
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 393/393 [00:23<00:00, 16.76it/s, MSE=0.0336]
+  0%|                                                                                                                                                                                      | 0/172 [00:00<?, ?it/s]c:\Users\Cong\.conda\envs\idm\lib\site-packages\torch\nn\modules\activation.py:1160: UserWarning: Converting mask without torch.bool dtype to bool; this will negatively affect performance. Prefer to use a boolean mask directly. (Triggered internally at C:\cb\pytorch_1000000000000\work\aten\src\ATen\native\transformers\attention.cpp:152.)
+  return torch._native_multi_head_attention(

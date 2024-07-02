@@ -3,6 +3,7 @@ import torch
 from typing import Tuple
 from torch.utils.data import Dataset
 from utils import get_indices_entire_sequence, generate_square_subsequent_mask, train_loop, validation_loop
+import numpy as np
 
 class TransformerDataset(Dataset):
     """
@@ -14,7 +15,8 @@ class TransformerDataset(Dataset):
         indices: list, 
         enc_seq_len: int, 
         dec_seq_len: int, 
-        target_seq_len: int
+        target_seq_len: int,
+        predict_full: bool = False,
         ) -> None:
 
         """
@@ -48,6 +50,7 @@ class TransformerDataset(Dataset):
         self.enc_seq_len = enc_seq_len
         self.dec_seq_len = dec_seq_len
         self.target_seq_len = target_seq_len
+        self.predict_full = predict_full
 
     def __len__(self):
         return len(self.indices)
@@ -111,37 +114,47 @@ class TransformerDataset(Dataset):
         # decoder input. As per the paper, it must have the same dimension as the 
         # target sequence, and it must contain the last value of src, and all
         # values of trg_y except the last (i.e. it must be shifted right by 1)
-        trg = sequence[enc_seq_len-1:len(sequence)-1]
-        assert len(trg) == target_seq_len, "Length of trg does not match target sequence length"
-        # The target sequence against which the model output will be compared to compute loss
-        trg_y = sequence[-target_seq_len:]
-        assert len(trg_y) == target_seq_len, "Length of trg_y does not match target sequence length"
+        if self.predict_full == True:
+            # When predict_full is True
+            trg = sequence[enc_seq_len-1:len(sequence)-1]
+            assert len(trg) == target_seq_len, "Length of trg does not match target sequence length"
+            trg_y = sequence[-target_seq_len:]
+            assert len(trg_y) == target_seq_len, "Length of trg_y does not match target sequence length"
+        else:
+            # When predict_full is False
+            trg = sequence[enc_seq_len-1:len(sequence)-1, 0]    #.unsqueeze(-1)
+            trg = np.expand_dims(trg, axis=-1)
+            assert len(trg) == target_seq_len, "Length of trg does not match target sequence length"
+            trg_y = sequence[-target_seq_len:, 0]   #.unsqueeze(-1)
+            trg_y = np.expand_dims(trg_y, axis=-1) 
+            assert len(trg_y) == target_seq_len, "Length of trg_y does not match target sequence length"
         return src, trg, trg_y # # .squeeze(-1) change size from [batch_size, target_seq_len, num_features] to [batch_size, target_seq_len] 
 
 
-if __name__ == "__main__":
-    indices_data = get_indices_entire_sequence(
-        data= torch.randn(120, 1),
-        window_size=35,
-        step_size=1
-        )
+# if __name__ == "__main__":
+#     indices_data = get_indices_entire_sequence(
+#         data= torch.randn(120, 8),
+#         window_size=35,
+#         step_size=1
+#         )
 
-    train_data = TransformerDataset(
-        data=torch.rand(120, 1),
-        indices= indices_data,
-        enc_seq_len= 30,
-        dec_seq_len= 5, 
-        target_seq_len= 5
-        )
+#     train_data = TransformerDataset(
+#         data=torch.rand(120, 8),
+#         indices= indices_data,
+#         enc_seq_len= 30,
+#         dec_seq_len= 5, 
+#         target_seq_len= 5,
+#         predict_full=False
+#         )
     
-    # Iterate over the dataset and print the tensors
-    for i in range(len(train_data)):
-        src, trg, trg_y = train_data[i]
-        print(f"Sample {i+1}:")
-        print(f"Source (src): \n{src}\n")
-        print(f"Target (trg): \n{trg}\n")
-        print(f"Target_y (trg_y): \n{trg_y}\n")
+#     # Iterate over the dataset and print the tensors
+#     for i in range(len(train_data)):
+#         src, trg, trg_y = train_data[i]
+#         print(f"Sample {i+1}:")
+#         print(f"Source (src): \n{src.shape}\n")
+#         print(f"Target (trg): \n{trg.shape}\n")
+#         print(f"Target_y (trg_y): \n{trg_y.shape}\n")
         
-        # Limit the print to first 5 samples for brevity
-        if i >= 3:
-            break
+#         # Limit the print to first 5 samples for brevity
+#         if i >= 0:
+#             break

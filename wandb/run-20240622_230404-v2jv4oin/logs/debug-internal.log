@@ -1,0 +1,147 @@
+2024-06-22 23:04:04,183 INFO    StreamThr :7528 [internal.py:wandb_internal():85] W&B internal server running at pid: 7528, started at: 2024-06-22 23:04:04.181417
+2024-06-22 23:04:04,187 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: status
+2024-06-22 23:04:04,190 INFO    WriterThread:7528 [datastore.py:open_for_write():87] open: d:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240622_230404-v2jv4oin\run-v2jv4oin.wandb
+2024-06-22 23:04:04,197 DEBUG   SenderThread:7528 [sender.py:send():379] send: header
+2024-06-22 23:04:04,242 DEBUG   SenderThread:7528 [sender.py:send():379] send: run
+2024-06-22 23:04:04,856 INFO    SenderThread:7528 [dir_watcher.py:__init__():211] watching files in: d:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240622_230404-v2jv4oin\files
+2024-06-22 23:04:04,857 INFO    SenderThread:7528 [sender.py:_start_run_threads():1188] run started: v2jv4oin with start time 1719072244.178168
+2024-06-22 23:04:04,880 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: check_version
+2024-06-22 23:04:04,880 DEBUG   SenderThread:7528 [sender.py:send_request():406] send_request: check_version
+2024-06-22 23:04:05,521 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: run_start
+2024-06-22 23:04:05,545 DEBUG   HandlerThread:7528 [system_info.py:__init__():26] System info init
+2024-06-22 23:04:05,545 DEBUG   HandlerThread:7528 [system_info.py:__init__():41] System info init done
+2024-06-22 23:04:05,545 INFO    HandlerThread:7528 [system_monitor.py:start():194] Starting system monitor
+2024-06-22 23:04:05,547 INFO    HandlerThread:7528 [system_monitor.py:probe():214] Collecting system info
+2024-06-22 23:04:05,547 INFO    SystemMonitor:7528 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-06-22 23:04:05,549 INFO    SystemMonitor:7528 [interfaces.py:start():188] Started cpu monitoring
+2024-06-22 23:04:05,555 INFO    SystemMonitor:7528 [interfaces.py:start():188] Started disk monitoring
+2024-06-22 23:04:05,556 INFO    SystemMonitor:7528 [interfaces.py:start():188] Started gpu monitoring
+2024-06-22 23:04:05,558 INFO    SystemMonitor:7528 [interfaces.py:start():188] Started memory monitoring
+2024-06-22 23:04:05,566 DEBUG   HandlerThread:7528 [system_info.py:probe():152] Probing system
+2024-06-22 23:04:05,567 INFO    SystemMonitor:7528 [interfaces.py:start():188] Started network monitoring
+2024-06-22 23:04:05,577 DEBUG   HandlerThread:7528 [system_info.py:_probe_git():137] Probing git
+2024-06-22 23:04:05,664 DEBUG   HandlerThread:7528 [system_info.py:_probe_git():145] Probing git done
+2024-06-22 23:04:05,664 DEBUG   HandlerThread:7528 [system_info.py:probe():200] Probing system done
+2024-06-22 23:04:05,665 DEBUG   HandlerThread:7528 [system_monitor.py:probe():223] {'os': 'Windows-10-10.0.22631-SP0', 'python': '3.9.18', 'heartbeatAt': '2024-06-22T16:04:05.566318', 'startedAt': '2024-06-22T16:04:04.150369', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': 'd:\\Major8\\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\\train.py', 'codePathLocal': 'train.py', 'codePath': 'train.py', 'git': {'remote': 'https://github.com/justinvo277/-DSP391m-Forecasting-Financial-Time-Series-With-Transformer.git', 'commit': 'a1f80be7b83aacd5d30efcae541fab6a5b321ffd'}, 'email': 'congxayda@gmail.com', 'root': 'D:/Major8/-DSP391m-Forecasting-Financial-Time-Series-With-Transformer', 'host': 'LAPTOP-P9KID1A6', 'username': 'Cong', 'executable': 'c:\\Users\\Cong\\.conda\\envs\\idm\\python.exe', 'cpu_count': 4, 'cpu_count_logical': 8, 'cpu_freq': {'current': 2496.0, 'min': 0.0, 'max': 2496.0}, 'cpu_freq_per_core': [{'current': 2496.0, 'min': 0.0, 'max': 2496.0}], 'disk': {'/': {'total': 199.99901962280273, 'used': 71.9999008178711}}, 'gpu': 'NVIDIA GeForce GTX 1650 Ti', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce GTX 1650 Ti', 'memory_total': 4294967296}], 'memory': {'total': 15.835010528564453}}
+2024-06-22 23:04:05,665 INFO    HandlerThread:7528 [system_monitor.py:probe():224] Finished collecting system info
+2024-06-22 23:04:05,665 INFO    HandlerThread:7528 [system_monitor.py:probe():227] Publishing system info
+2024-06-22 23:04:05,665 DEBUG   HandlerThread:7528 [system_info.py:_save_conda():209] Saving list of conda packages installed into the current environment
+2024-06-22 23:04:05,670 ERROR   HandlerThread:7528 [system_info.py:_save_conda():223] Error saving conda packages: [WinError 2] The system cannot find the file specified
+Traceback (most recent call last):
+  File "c:\Users\Cong\.conda\envs\idm\lib\site-packages\wandb\sdk\internal\system\system_info.py", line 216, in _save_conda
+    subprocess.call(
+  File "c:\Users\Cong\.conda\envs\idm\lib\subprocess.py", line 349, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "c:\Users\Cong\.conda\envs\idm\lib\subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "c:\Users\Cong\.conda\envs\idm\lib\subprocess.py", line 1436, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+  File "c:\Users\Cong\.vscode\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydev_bundle\pydev_monkey.py", line 901, in new_CreateProcess
+    return getattr(_subprocess, original_name)(app_name, cmd_line, *args)
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+2024-06-22 23:04:05,673 DEBUG   HandlerThread:7528 [system_info.py:_save_conda():224] Saving conda packages done
+2024-06-22 23:04:05,674 INFO    HandlerThread:7528 [system_monitor.py:probe():229] Finished publishing system info
+2024-06-22 23:04:05,721 DEBUG   SenderThread:7528 [sender.py:send():379] send: files
+2024-06-22 23:04:05,721 INFO    SenderThread:7528 [sender.py:_save_file():1454] saving file wandb-metadata.json with policy now
+2024-06-22 23:04:05,866 INFO    Thread-21 :7528 [dir_watcher.py:_on_file_created():271] file/dir created: d:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240622_230404-v2jv4oin\files\conda-environment.yaml
+2024-06-22 23:04:05,866 INFO    Thread-21 :7528 [dir_watcher.py:_on_file_created():271] file/dir created: d:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240622_230404-v2jv4oin\files\wandb-metadata.json
+2024-06-22 23:04:06,298 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: python_packages
+2024-06-22 23:04:06,299 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-22 23:04:06,299 DEBUG   SenderThread:7528 [sender.py:send_request():406] send_request: python_packages
+2024-06-22 23:04:06,301 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:06,303 DEBUG   SenderThread:7528 [sender.py:send_request():406] send_request: stop_status
+2024-06-22 23:04:06,564 DEBUG   SenderThread:7528 [sender.py:send():379] send: telemetry
+2024-06-22 23:04:06,564 DEBUG   SenderThread:7528 [sender.py:send():379] send: telemetry
+2024-06-22 23:04:06,565 DEBUG   SenderThread:7528 [sender.py:send():379] send: config
+2024-06-22 23:04:06,565 DEBUG   SenderThread:7528 [sender.py:send():379] send: config
+2024-06-22 23:04:06,566 DEBUG   SenderThread:7528 [sender.py:send():379] send: config
+2024-06-22 23:04:06,688 INFO    wandb-upload_0:7528 [upload_job.py:push():130] Uploaded file C:\Users\Cong\AppData\Local\Temp\tmp9bi46wvnwandb\upspccqe-wandb-metadata.json
+2024-06-22 23:04:06,868 INFO    Thread-21 :7528 [dir_watcher.py:_on_file_created():271] file/dir created: d:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240622_230404-v2jv4oin\files\requirements.txt
+2024-06-22 23:04:07,317 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:08,340 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:09,236 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: status_report
+2024-06-22 23:04:09,352 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:09,881 INFO    Thread-21 :7528 [dir_watcher.py:_on_file_created():271] file/dir created: d:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240622_230404-v2jv4oin\files\output.log
+2024-06-22 23:04:10,362 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:11,381 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:11,900 INFO    Thread-21 :7528 [dir_watcher.py:_on_file_modified():288] file/dir modified: d:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240622_230404-v2jv4oin\files\output.log
+2024-06-22 23:04:12,395 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:13,406 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:13,940 INFO    Thread-21 :7528 [dir_watcher.py:_on_file_modified():288] file/dir modified: d:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240622_230404-v2jv4oin\files\output.log
+2024-06-22 23:04:14,261 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: status_report
+2024-06-22 23:04:14,398 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:15,413 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:15,959 INFO    Thread-21 :7528 [dir_watcher.py:_on_file_modified():288] file/dir modified: d:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240622_230404-v2jv4oin\files\output.log
+2024-06-22 23:04:16,427 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:17,446 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:17,976 INFO    Thread-21 :7528 [dir_watcher.py:_on_file_modified():288] file/dir modified: d:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240622_230404-v2jv4oin\files\output.log
+2024-06-22 23:04:18,461 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:19,014 INFO    Thread-21 :7528 [dir_watcher.py:_on_file_modified():288] file/dir modified: d:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240622_230404-v2jv4oin\files\output.log
+2024-06-22 23:04:19,302 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: status_report
+2024-06-22 23:04:19,472 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:20,483 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:21,040 INFO    Thread-21 :7528 [dir_watcher.py:_on_file_modified():288] file/dir modified: d:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240622_230404-v2jv4oin\files\output.log
+2024-06-22 23:04:21,290 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-22 23:04:21,291 DEBUG   SenderThread:7528 [sender.py:send_request():406] send_request: stop_status
+2024-06-22 23:04:21,476 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:22,508 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:23,066 INFO    Thread-21 :7528 [dir_watcher.py:_on_file_modified():288] file/dir modified: d:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240622_230404-v2jv4oin\files\output.log
+2024-06-22 23:04:23,519 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:24,347 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: status_report
+2024-06-22 23:04:24,527 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:25,088 INFO    Thread-21 :7528 [dir_watcher.py:_on_file_modified():288] file/dir modified: d:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240622_230404-v2jv4oin\files\output.log
+2024-06-22 23:04:25,542 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:26,554 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:27,107 INFO    Thread-21 :7528 [dir_watcher.py:_on_file_modified():288] file/dir modified: d:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240622_230404-v2jv4oin\files\output.log
+2024-06-22 23:04:27,573 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:28,588 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:29,135 INFO    Thread-21 :7528 [dir_watcher.py:_on_file_modified():288] file/dir modified: d:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240622_230404-v2jv4oin\files\output.log
+2024-06-22 23:04:29,350 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: status_report
+2024-06-22 23:04:29,645 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:30,614 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:31,155 INFO    Thread-21 :7528 [dir_watcher.py:_on_file_modified():288] file/dir modified: d:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240622_230404-v2jv4oin\files\output.log
+2024-06-22 23:04:31,622 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:32,465 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: partial_history
+2024-06-22 23:04:32,483 DEBUG   SenderThread:7528 [sender.py:send():379] send: history
+2024-06-22 23:04:32,484 DEBUG   SenderThread:7528 [sender.py:send_request():406] send_request: summary_record
+2024-06-22 23:04:32,485 INFO    SenderThread:7528 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2024-06-22 23:04:32,619 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:33,176 INFO    Thread-21 :7528 [dir_watcher.py:_on_file_modified():288] file/dir modified: d:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240622_230404-v2jv4oin\files\output.log
+2024-06-22 23:04:33,176 INFO    Thread-21 :7528 [dir_watcher.py:_on_file_created():271] file/dir created: d:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240622_230404-v2jv4oin\files\wandb-summary.json
+2024-06-22 23:04:33,628 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:34,515 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: status_report
+2024-06-22 23:04:34,643 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:35,206 INFO    Thread-21 :7528 [dir_watcher.py:_on_file_modified():288] file/dir modified: d:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240622_230404-v2jv4oin\files\config.yaml
+2024-06-22 23:04:35,658 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:36,299 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-22 23:04:36,300 DEBUG   SenderThread:7528 [sender.py:send_request():406] send_request: stop_status
+2024-06-22 23:04:36,672 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:37,689 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:38,701 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:39,696 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:40,585 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: status_report
+2024-06-22 23:04:40,710 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:41,727 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:42,734 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:43,752 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:44,767 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:45,772 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:46,373 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: status_report
+2024-06-22 23:04:46,780 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:47,775 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:48,792 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:49,797 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:50,794 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:51,316 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-22 23:04:51,317 DEBUG   SenderThread:7528 [sender.py:send_request():406] send_request: stop_status
+2024-06-22 23:04:51,685 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: status_report
+2024-06-22 23:04:51,806 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:52,813 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:53,824 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:54,833 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:55,842 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:56,831 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:57,390 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: status_report
+2024-06-22 23:04:57,847 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:58,854 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-22 23:04:59,864 DEBUG   HandlerThread:7528 [handler.py:handle_request():158] handle_request: internal_messages

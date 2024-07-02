@@ -1,4 +1,5 @@
 import os
+import numpy as np
 import pandas as pd
 from scipy.stats.mstats import winsorize
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
@@ -129,3 +130,11 @@ def winsorize_dataframe(df, limits=(0.075, 0.075)):
         if pd.api.types.is_numeric_dtype(df_winsorized[col]):
             df_winsorized[col] = winsorize_series(df_winsorized[col], limits)
     return df_winsorized
+
+
+def create_sliding_windows(X, y, time_steps=60):
+    Xs, ys = [], []
+    for i in range(len(X) - time_steps):
+        Xs.append(X[i:(i + time_steps)])
+        ys.append(y[i + time_steps])
+    return np.array(Xs), np.array(ys)
