@@ -13,7 +13,7 @@ def crawl_data(num_page):
     #for example: crawl_data(200)#
 
     browser = webdriver.Chrome()  # Không cần executable_path
-    browser.get('https://s.cafef.vn/lich-su-giao-dich-symbol-vnindex/trang-1-0-tab-1.chn')
+    browser.get('https://s.cafef.vn/lich-su-giao-dich-vcb-1.chn#data')
     sleep(3)
 
     _list= []
@@ -33,7 +33,7 @@ def crawl_data(num_page):
 def save_csv_file(list):
     #save to csv file
     # Mở tệp CSV để ghi
-    with open('data.csv', mode='w', newline='', encoding='utf-8') as file:
+    with open('VCB_stock.csv', mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
         
         # Lặp qua từng dòng dữ liệu và ghi vào tệp CSV
@@ -48,5 +48,5 @@ def save_csv_file(list):
 
 #end save_csv_file
 
-test_2_pages = crawl_data(2)
+test_2_pages = crawl_data(188)
 save_csv_file(test_2_pages)
