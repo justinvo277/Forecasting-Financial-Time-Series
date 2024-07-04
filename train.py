@@ -19,7 +19,7 @@ parser.add_argument("--checkpoint", type=str, help="folder to save checkpoint", 
 parser.add_argument("--datafile_type", type=str, help="csv, xlsx, ....", default="xlsx")
 parser.add_argument("--num_rows", type=int, help="Rows of test dataset", default=720)
 
-parser.add_argument("--batch_size", type=float, help="Batch size of dataset train, test and val", default=4)
+parser.add_argument("--batch_size", type=float, help="Batch size of dataset train, test and val", default=32)
 parser.add_argument("--learning_rate", type=float, help="Learning rate for training model", default=1e-5)
 parser.add_argument("--batch_first", type=bool, help="Type batch size of dataloader", default=True)
 parser.add_argument("--max_viz", type=int, help="After n epochs will validation model", default=4)
@@ -38,7 +38,7 @@ if __name__ == "__main__":
     else:
         DEVICE = torch.device('cpu')
 
-    wandb.login(key="39af6effd799f393f92bb9698e6e29404041b445")
+    wandb.login(key="")
     wandb.init(project="DSP391m-project")
     config = wandb.config
     config.learning_rate = args.learning_rate
@@ -54,23 +54,23 @@ if __name__ == "__main__":
     dataset_test = np.array(dataset_test)
 
     #Dataloader;
-    indices_data_train =get_indices_entire_sequence(data=dataset_train, window_size=35, step_size=1)
+    indices_data_train =get_indices_entire_sequence(data=dataset_train, window_size=14, step_size=1)
     dataloader_train = TransformerDataset(
         data=dataset_train,
         indices= indices_data_train,
-        enc_seq_len= 30,
-        dec_seq_len= 5,
-        target_seq_len= 5,
+        enc_seq_len= 10,
+        dec_seq_len= 4,
+        target_seq_len= 4,
         predict_full=False) #num_predicted_features=8 and predict_full=True if want to predict full
     train_data = DataLoader(dataset=dataloader_train, batch_size=config.batch_size)
 
-    indices_data_test =get_indices_entire_sequence(data=dataset_test, window_size=35, step_size=1)
+    indices_data_test =get_indices_entire_sequence(data=dataset_test, window_size=14, step_size=1)
     dataloader_test = TransformerDataset(
         data=dataset_test,
         indices= indices_data_test,
-        enc_seq_len= 30,
-        dec_seq_len= 5,
-        target_seq_len= 5,
+        enc_seq_len= 10,
+        dec_seq_len= 4,
+        target_seq_len= 4,
         predict_full=False) #num_predicted_features=8 and predict_full=True if want to predict full
     test_data = DataLoader(dataset=dataloader_test, batch_size=config.batch_size)
 
@@ -85,12 +85,12 @@ if __name__ == "__main__":
 
     # Make src mask for decoder with size:
     # [batch_size*n_heads, output_sequence_length, enc_seq_len]
-    src_mask = generate_square_subsequent_mask(dim1=5,dim2=30)
+    src_mask = generate_square_subsequent_mask(dim1=4,dim2=10)
     src_mask = src_mask.to(DEVICE)
 
     # Make tgt mask for decoder with size:
     # [batch_size*n_heads, output_sequence_length, output_sequence_length]
-    tgt_mask = generate_square_subsequent_mask(dim1=5,dim2=5)
+    tgt_mask = generate_square_subsequent_mask(dim1=4,dim2=4)
     tgt_mask = tgt_mask.to(DEVICE)
 
 
@@ -116,7 +116,7 @@ if __name__ == "__main__":
 
         if (epoch+1) % args.max_viz == 0:
             print(f"[{epoch+1}/{args.epochs}: VALIDATION PHASE]")
-            loss_dict = run_encoder_decoder_inference(model=model, datatrain=test_data, forecast_window=5,
+            loss_dict = run_encoder_decoder_inference(model=model, datatrain=test_data, forecast_window=4,
             criterion_list=criterion_list, device=DEVICE)
             val_loss = loss_dict['mse']
             print(f"[RESULT VALIDATION PHASE]: MSE: {loss_dict['mse']} | MAE: {loss_dict['mae']} | HUBER: {loss_dict['huber']}")
