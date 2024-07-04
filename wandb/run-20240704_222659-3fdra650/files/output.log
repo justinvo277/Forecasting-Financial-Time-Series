@@ -1,0 +1,28 @@
+
+  0%|                                                                                          | 0/113 [00:00<?, ?it/s]
+  0%|                                                                                          | 0/113 [00:00<?, ?it/s]D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\functional.py:5504: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at ..\aten\src\ATen\native\transformers\cuda\sdp_utils.cpp:455.)
+  attn_output = scaled_dot_product_attention(q, k, v, attn_mask, dropout_p, is_causal)
+
+100%|█████████████████████████████████████████████████████████████| 113/113 [00:07<00:00, 16.10it/s, Loss_Train=0.0966]
+ 11%|██████▌                                                       | 12/113 [00:00<00:04, 21.80it/s, Loss_Train=0.0574]
+[RESULT TRAINING PHASE]: Loss Train: 0.05320482259303068
+
+
+100%|█████████████████████████████████████████████████████████████| 113/113 [00:05<00:00, 21.90it/s, Loss_Train=0.0526]
+  0%|                                                                                          | 0/113 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\train.py", line 112, in <module>
+    loss = train_loop(model=model, datatrain=train_data, opt=opt, criterion=huber_loss,
+  File "D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\utils.py", line 18, in train_loop
+    for batch_idx, (src, trg, trg_y) in enumerate(loop):
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\tqdm\std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\utils\data\dataloader.py", line 627, in __next__
+    with torch.autograd.profiler.record_function(self._profile_name):
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\autograd\profiler.py", line 601, in __init__
+    Optional["torch.classes.profiler._RecordFunction"], None
+  File "D:\Anaconda\envs\dsp391m\lib\typing.py", line 306, in inner
+    return cached(*args, **kwds)
+KeyboardInterrupt
+[RESULT TRAINING PHASE]: Loss Train: 0.04925656748886129
+[3/300: TRAINING PHASE]

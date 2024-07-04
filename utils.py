@@ -32,13 +32,13 @@ def train_loop(model: torch.nn, datatrain: torch.utils.data.Dataset, opt: torch.
         opt.step()
 
         total_loss += loss.item()
-        loss_iter_dict = {"MSE": loss.item()}
+        loss_iter_dict = {"Loss Train": loss.item()}
         save_log(path_log,  loss_iter_dict, epoch, batch_idx)
 
-        loop.set_postfix(MSE=loss.item())
+        loop.set_postfix(Loss_Train=loss.item())
         
     total_loss /= len(datatrain)
-    total_loss_dict = {"MSE": total_loss}
+    total_loss_dict = {"Loss Train": total_loss}
     save_log(path_log, total_loss_dict, epoch, len(datatrain), f"End  {epoch} epoch")
 
     return total_loss_dict

@@ -1,0 +1,13 @@
+
+  0%|                                                                                          | 0/113 [00:00<?, ?it/s]
+  0%|                                                                                          | 0/113 [00:00<?, ?it/s]D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\functional.py:5504: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at ..\aten\src\ATen\native\transformers\cuda\sdp_utils.cpp:455.)
+  attn_output = scaled_dot_product_attention(q, k, v, attn_mask, dropout_p, is_causal)
+  0%|                                                                                          | 0/113 [00:01<?, ?it/s]
+Traceback (most recent call last):
+  File "D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\train.py", line 112, in <module>
+    loss = train_loop(model=model, datatrain=train_data, opt=opt, criterion=huber_loss,
+  File "D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\utils.py", line 36, in train_loop
+    save_log(path_log,  loss_iter_dict, epoch, batch_idx)
+  File "D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\utils.py", line 81, in save_log
+    with open(path_log, 'a') as file:
+FileNotFoundError: [Errno 2] No such file or directory: 'D:\\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\\craw_data\\FPT_stock.xlsx\\log0.txt'

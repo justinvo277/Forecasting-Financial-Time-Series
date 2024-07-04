@@ -1,0 +1,8 @@
+
+The path of dataset does not exist. Please check again !!
+Traceback (most recent call last):
+  File "D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\train.py", line 50, in <module>
+    dataset = preprocessing_dataframe(dataset_raw, fillna='ffill', scale="std")
+  File "D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\preprocessing_data\utils.py", line 51, in preprocessing_dataframe
+    dataFrame.drop(columns=['Điều chỉnh', 'Thay đổi', 'Thay đổi 1', '%', 'Khối lượng (Khớp lệnh)',
+AttributeError: 'NoneType' object has no attribute 'drop'

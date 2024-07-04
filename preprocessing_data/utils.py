@@ -40,17 +40,20 @@ def format_Dataframes(data_path:str=None, type_file:str="csv") -> pd.DataFrame:
         return df
 
 
-def preprocessing_dataframe(dataFrame: pd.DataFrame, fillna: str="mean", scale: str="std") -> pd.DataFrame:
-
+def preprocessing_dataframe(dataFrame: pd.DataFrame, fillna: str="mean", scale: str=None) -> pd.DataFrame:
     '''
     dataFrame: A data frame is data after reading from a csv file and having run it through the format_Dataframes() function.
-    fillna: Type of fill data NaN, Null or None; [None, Zero, Mean].
+    fillna: Type of fill data NaN, Null or None; [None, Zero, Mean, Linear, Ffill].
     scale: Type of scale; [MinMaxScaler, StandardScaler]
     '''
 
-    dataFrame.drop(columns=['Điều chỉnh', 'Thay đổi', 'Thay đổi 1', '%'], inplace=True)
-    scaler = None
-
+    # Drop unnecessary columns
+    dataFrame.drop(columns=['Điều chỉnh', 'Thay đổi', 'Thay đổi 1', '%', 'Khối lượng (Khớp lệnh)',
+                            "Giá trị (Khớp lệnh)", "Khối lượng (Thỏa thuận)", "Giá trị (Thỏa thuận)"], inplace=True)
+    # Replace "NaN" strings with np.nan
+    dataFrame.replace("NaN", np.nan, inplace=True)
+    
+    # Handle NaN values
     if fillna == "zero":
         float_columns = dataFrame.select_dtypes(include=['float']).columns
         dataFrame[float_columns] = dataFrame[float_columns].fillna(0)
@@ -61,9 +64,16 @@ def preprocessing_dataframe(dataFrame: pd.DataFrame, fillna: str="mean", scale: 
         dataFrame[float_columns] = dataFrame[float_columns].fillna(dataFrame[float_columns].mean())
         int_columns = dataFrame.select_dtypes(include=['int']).columns
         dataFrame[int_columns] = dataFrame[int_columns].fillna(dataFrame[int_columns].mean())
+    elif fillna == 'linear':
+        dataFrame = dataFrame.interpolate(method='linear')
+    elif fillna == 'ffill':
+        dataFrame = dataFrame.ffill()
     else:
         dataFrame.dropna(inplace=True)
 
+    dataFrame = dataFrame.bfill()
+    
+    # Separate 'Ngày' and 'Tên' columns
     tmp_dataFrame_day = dataFrame["Ngày"]
     tmp_dataFrame_day.reset_index(drop=True, inplace=True)
     tmp_dataFrame_name = dataFrame["Tên"]
@@ -71,16 +81,19 @@ def preprocessing_dataframe(dataFrame: pd.DataFrame, fillna: str="mean", scale: 
     dataFrame.drop(columns=["Ngày", "Tên"], inplace=True)
     dataFrame.reset_index(drop=True, inplace=True)
 
+    # Scale the data
     if scale == "std":
-        scaler = MinMaxScaler()
-    else:
         scaler = StandardScaler()
+    else:
+        scaler = MinMaxScaler()
     tmp_scaler = scaler.fit_transform(dataFrame)
-    dataFrame =  pd.DataFrame(tmp_scaler, columns=dataFrame.columns)
-    # tmp_dataFrame = pd.concat([tmp_dataFrame_day, tmp_dataFrame_name], axis=1)
+    dataFrame = pd.DataFrame(tmp_scaler, columns=dataFrame.columns)
+    
+    # Concatenate 'Ngày' column back to the DataFrame
     dataFrame = pd.concat([tmp_dataFrame_day, dataFrame], axis=1)
     dataFrame.set_index("Ngày", inplace=True)
     dataFrame.sort_values(by="Ngày", inplace=True)
+    
     return dataFrame
 
 

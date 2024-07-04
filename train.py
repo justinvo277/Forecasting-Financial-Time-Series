@@ -13,8 +13,8 @@ from inference import run_encoder_decoder_inference
 
 
 parser = argparse.ArgumentParser(description="Config")
-parser.add_argument("--data_path", type=str, help="Path of dataset", default="D:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\craw_data\FPT_stock.xlsx")
-parser.add_argument("--log_path", type=str, help="save log for training", default=r"D:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\log")
+parser.add_argument("--data_path", type=str, help="Path of dataset", default=r"D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\craw_data\FPT_stock.xlsx")
+parser.add_argument("--log_path", type=str, help="save log for training", default=r"D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\log")
 parser.add_argument("--checkpoint", type=str, help="folder to save checkpoint", default=r"D:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\checkpoint")
 parser.add_argument("--datafile_type", type=str, help="csv, xlsx, ....", default="xlsx")
 parser.add_argument("--num_rows", type=int, help="Rows of test dataset", default=720)
@@ -47,8 +47,8 @@ if __name__ == "__main__":
 
     #Read and preprocessing dataset;
     dataset_raw = format_Dataframes(data_path=args.data_path, type_file=args.datafile_type)
-    dataset = preprocessing_dataframe(dataset_raw)
-    dataset = remove_outliers(dataset)
+    dataset = preprocessing_dataframe(dataset_raw, fillna='ffill', scale="std")
+    dataset = winsorize_dataframe(dataset)
     dataset_train, dataset_test = split_data(dataset, num_rows=args.num_rows)
     dataset_train = np.array(dataset_train)
     dataset_test = np.array(dataset_test)
@@ -76,7 +76,7 @@ if __name__ == "__main__":
 
     #Model
     model = TimeSeriesTransformer(
-        input_size=8,
+        input_size=4,
         dec_seq_len=30,
         batch_first=args.batch_first,
         num_predicted_features=args.num_predicted_features)  #num_predicted_features=8 and predict_full=True if want to predict full
@@ -109,10 +109,10 @@ if __name__ == "__main__":
     for epoch in range(config.epochs):
 
         print(f"[{epoch+1}/{args.epochs}: TRAINING PHASE]")
-        loss = train_loop(model=model, datatrain=train_data, opt=opt, criterion=mse_loss, 
+        loss = train_loop(model=model, datatrain=train_data, opt=opt, criterion=huber_loss, 
         epoch=epoch, path_log=args.log_path, src_mask=src_mask, tgt_mask=tgt_mask, device=DEVICE)
-        print(f"[RESULT TRAINING PHASE]: MSE: {loss['MSE']}")
-        wandb.log({"TRAIN LOSS": loss['MSE']})
+        print(f"[RESULT TRAINING PHASE]: Loss Train: {loss['Loss Train']}")
+        wandb.log({"TRAIN LOSS": loss['Loss Train']})
 
         if (epoch+1) % args.max_viz == 0:
             print(f"[{epoch+1}/{args.epochs}: VALIDATION PHASE]")

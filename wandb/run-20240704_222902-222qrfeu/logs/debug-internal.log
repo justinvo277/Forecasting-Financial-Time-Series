@@ -1,0 +1,205 @@
+2024-07-04 22:29:02,189 INFO    StreamThr :14312 [internal.py:wandb_internal():85] W&B internal server running at pid: 14312, started at: 2024-07-04 22:29:02.188179
+2024-07-04 22:29:02,191 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: status
+2024-07-04 22:29:02,194 INFO    WriterThread:14312 [datastore.py:open_for_write():87] open: D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240704_222902-222qrfeu\run-222qrfeu.wandb
+2024-07-04 22:29:02,196 DEBUG   SenderThread:14312 [sender.py:send():379] send: header
+2024-07-04 22:29:02,236 DEBUG   SenderThread:14312 [sender.py:send():379] send: run
+2024-07-04 22:29:02,857 INFO    SenderThread:14312 [dir_watcher.py:__init__():211] watching files in: D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240704_222902-222qrfeu\files
+2024-07-04 22:29:02,857 INFO    SenderThread:14312 [sender.py:_start_run_threads():1188] run started: 222qrfeu with start time 1720106942.190421
+2024-07-04 22:29:02,868 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: check_version
+2024-07-04 22:29:02,868 DEBUG   SenderThread:14312 [sender.py:send_request():406] send_request: check_version
+2024-07-04 22:29:03,830 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: run_start
+2024-07-04 22:29:03,855 DEBUG   HandlerThread:14312 [system_info.py:__init__():26] System info init
+2024-07-04 22:29:03,855 DEBUG   HandlerThread:14312 [system_info.py:__init__():41] System info init done
+2024-07-04 22:29:03,855 INFO    HandlerThread:14312 [system_monitor.py:start():194] Starting system monitor
+2024-07-04 22:29:03,855 INFO    SystemMonitor:14312 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-07-04 22:29:03,855 INFO    HandlerThread:14312 [system_monitor.py:probe():214] Collecting system info
+2024-07-04 22:29:03,859 INFO    SystemMonitor:14312 [interfaces.py:start():188] Started cpu monitoring
+2024-07-04 22:29:03,859 INFO    SystemMonitor:14312 [interfaces.py:start():188] Started disk monitoring
+2024-07-04 22:29:03,860 INFO    SystemMonitor:14312 [interfaces.py:start():188] Started gpu monitoring
+2024-07-04 22:29:03,867 INFO    SystemMonitor:14312 [interfaces.py:start():188] Started memory monitoring
+2024-07-04 22:29:03,877 INFO    SystemMonitor:14312 [interfaces.py:start():188] Started network monitoring
+2024-07-04 22:29:03,880 DEBUG   HandlerThread:14312 [system_info.py:probe():152] Probing system
+2024-07-04 22:29:03,882 DEBUG   HandlerThread:14312 [system_info.py:_probe_git():137] Probing git
+2024-07-04 22:29:03,952 DEBUG   HandlerThread:14312 [system_info.py:_probe_git():145] Probing git done
+2024-07-04 22:29:03,952 DEBUG   HandlerThread:14312 [system_info.py:probe():200] Probing system done
+2024-07-04 22:29:03,952 DEBUG   HandlerThread:14312 [system_monitor.py:probe():223] {'os': 'Windows-10-10.0.22631-SP0', 'python': '3.10.0', 'heartbeatAt': '2024-07-04T15:29:03.881687', 'startedAt': '2024-07-04T15:29:02.181171', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': 'D:\\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\\train.py', 'codePathLocal': 'train.py', 'codePath': 'train.py', 'git': {'remote': 'https://github.com/justinvo277/-DSP391m-Forecasting-Financial-Time-Series-With-Transformer.git', 'commit': '218a74e05d00d4e43c619c00ab5042b45370f168'}, 'email': 'truongvdnse161235@fpt.edu.vn', 'root': 'D:/-DSP391m-Forecasting-Financial-Time-Series-With-Transformer', 'host': 'DESKTOP-AARAALH', 'username': 'MSI', 'executable': 'D:\\Anaconda\\envs\\dsp391m\\python.exe', 'cpu_count': 6, 'cpu_count_logical': 12, 'cpu_freq': {'current': 2592.0, 'min': 0.0, 'max': 2592.0}, 'cpu_freq_per_core': [{'current': 2592.0, 'min': 0.0, 'max': 2592.0}], 'disk': {'/': {'total': 215.00487899780273, 'used': 27.76189422607422}}, 'gpu': 'NVIDIA GeForce GTX 1660 Ti', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce GTX 1660 Ti', 'memory_total': 6442450944}], 'memory': {'total': 15.824447631835938}}
+2024-07-04 22:29:03,952 INFO    HandlerThread:14312 [system_monitor.py:probe():224] Finished collecting system info
+2024-07-04 22:29:03,952 INFO    HandlerThread:14312 [system_monitor.py:probe():227] Publishing system info
+2024-07-04 22:29:03,952 DEBUG   HandlerThread:14312 [system_info.py:_save_conda():209] Saving list of conda packages installed into the current environment
+2024-07-04 22:29:03,954 ERROR   HandlerThread:14312 [system_info.py:_save_conda():223] Error saving conda packages: [WinError 2] The system cannot find the file specified
+Traceback (most recent call last):
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\wandb\sdk\internal\system\system_info.py", line 216, in _save_conda
+    subprocess.call(
+  File "D:\Anaconda\envs\dsp391m\lib\subprocess.py", line 345, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "D:\Anaconda\envs\dsp391m\lib\subprocess.py", line 966, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "D:\Anaconda\envs\dsp391m\lib\subprocess.py", line 1435, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+2024-07-04 22:29:03,955 DEBUG   HandlerThread:14312 [system_info.py:_save_conda():224] Saving conda packages done
+2024-07-04 22:29:03,956 INFO    HandlerThread:14312 [system_monitor.py:probe():229] Finished publishing system info
+2024-07-04 22:29:03,965 DEBUG   SenderThread:14312 [sender.py:send():379] send: files
+2024-07-04 22:29:03,966 INFO    SenderThread:14312 [sender.py:_save_file():1454] saving file wandb-metadata.json with policy now
+2024-07-04 22:29:04,140 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: python_packages
+2024-07-04 22:29:04,140 DEBUG   SenderThread:14312 [sender.py:send_request():406] send_request: python_packages
+2024-07-04 22:29:04,141 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: stop_status
+2024-07-04 22:29:04,141 DEBUG   SenderThread:14312 [sender.py:send_request():406] send_request: stop_status
+2024-07-04 22:29:04,143 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-04 22:29:04,554 DEBUG   SenderThread:14312 [sender.py:send():379] send: telemetry
+2024-07-04 22:29:04,554 DEBUG   SenderThread:14312 [sender.py:send():379] send: telemetry
+2024-07-04 22:29:04,554 DEBUG   SenderThread:14312 [sender.py:send():379] send: config
+2024-07-04 22:29:04,554 DEBUG   SenderThread:14312 [sender.py:send():379] send: config
+2024-07-04 22:29:04,555 DEBUG   SenderThread:14312 [sender.py:send():379] send: config
+2024-07-04 22:29:04,892 INFO    Thread-16 :14312 [dir_watcher.py:_on_file_created():271] file/dir created: D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240704_222902-222qrfeu\files\wandb-metadata.json
+2024-07-04 22:29:04,892 INFO    Thread-16 :14312 [dir_watcher.py:_on_file_created():271] file/dir created: D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240704_222902-222qrfeu\files\requirements.txt
+2024-07-04 22:29:04,893 INFO    Thread-16 :14312 [dir_watcher.py:_on_file_created():271] file/dir created: D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240704_222902-222qrfeu\files\conda-environment.yaml
+2024-07-04 22:29:04,973 INFO    wandb-upload_0:14312 [upload_job.py:push():130] Uploaded file C:\Users\MSI\AppData\Local\Temp\tmpnz8j9zoswandb\x78y1rnm-wandb-metadata.json
+2024-07-04 22:29:05,138 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-04 22:29:05,725 DEBUG   SenderThread:14312 [sender.py:send():379] send: exit
+2024-07-04 22:29:05,725 INFO    SenderThread:14312 [sender.py:send_exit():586] handling exit code: 0
+2024-07-04 22:29:05,725 INFO    SenderThread:14312 [sender.py:send_exit():588] handling runtime: 1
+2024-07-04 22:29:05,726 INFO    SenderThread:14312 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2024-07-04 22:29:05,726 INFO    SenderThread:14312 [sender.py:send_exit():594] send defer
+2024-07-04 22:29:05,727 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: defer
+2024-07-04 22:29:05,727 INFO    HandlerThread:14312 [handler.py:handle_request_defer():184] handle defer: 0
+2024-07-04 22:29:05,727 DEBUG   SenderThread:14312 [sender.py:send_request():406] send_request: defer
+2024-07-04 22:29:05,727 INFO    SenderThread:14312 [sender.py:send_request_defer():610] handle sender defer: 0
+2024-07-04 22:29:05,727 INFO    SenderThread:14312 [sender.py:transition_state():614] send defer: 1
+2024-07-04 22:29:05,727 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: defer
+2024-07-04 22:29:05,727 INFO    HandlerThread:14312 [handler.py:handle_request_defer():184] handle defer: 1
+2024-07-04 22:29:05,728 DEBUG   SenderThread:14312 [sender.py:send_request():406] send_request: defer
+2024-07-04 22:29:05,728 INFO    SenderThread:14312 [sender.py:send_request_defer():610] handle sender defer: 1
+2024-07-04 22:29:05,728 INFO    SenderThread:14312 [sender.py:transition_state():614] send defer: 2
+2024-07-04 22:29:05,728 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: defer
+2024-07-04 22:29:05,728 INFO    HandlerThread:14312 [handler.py:handle_request_defer():184] handle defer: 2
+2024-07-04 22:29:05,728 INFO    HandlerThread:14312 [system_monitor.py:finish():203] Stopping system monitor
+2024-07-04 22:29:05,728 DEBUG   SystemMonitor:14312 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-07-04 22:29:05,734 INFO    HandlerThread:14312 [interfaces.py:finish():200] Joined cpu monitor
+2024-07-04 22:29:05,734 DEBUG   SystemMonitor:14312 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2024-07-04 22:29:05,740 INFO    HandlerThread:14312 [interfaces.py:finish():200] Joined disk monitor
+2024-07-04 22:29:05,740 DEBUG   SystemMonitor:14312 [system_monitor.py:_start():183] Publishing last batch of metrics
+2024-07-04 22:29:05,766 INFO    HandlerThread:14312 [interfaces.py:finish():200] Joined gpu monitor
+2024-07-04 22:29:05,766 INFO    HandlerThread:14312 [interfaces.py:finish():200] Joined memory monitor
+2024-07-04 22:29:05,767 INFO    HandlerThread:14312 [interfaces.py:finish():200] Joined network monitor
+2024-07-04 22:29:05,767 DEBUG   SenderThread:14312 [sender.py:send_request():406] send_request: defer
+2024-07-04 22:29:05,767 INFO    SenderThread:14312 [sender.py:send_request_defer():610] handle sender defer: 2
+2024-07-04 22:29:05,767 INFO    SenderThread:14312 [sender.py:transition_state():614] send defer: 3
+2024-07-04 22:29:05,767 DEBUG   SenderThread:14312 [sender.py:send():379] send: stats
+2024-07-04 22:29:05,767 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: defer
+2024-07-04 22:29:05,767 INFO    HandlerThread:14312 [handler.py:handle_request_defer():184] handle defer: 3
+2024-07-04 22:29:05,767 DEBUG   SenderThread:14312 [sender.py:send_request():406] send_request: defer
+2024-07-04 22:29:05,767 INFO    SenderThread:14312 [sender.py:send_request_defer():610] handle sender defer: 3
+2024-07-04 22:29:05,767 INFO    SenderThread:14312 [sender.py:transition_state():614] send defer: 4
+2024-07-04 22:29:05,767 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: defer
+2024-07-04 22:29:05,767 INFO    HandlerThread:14312 [handler.py:handle_request_defer():184] handle defer: 4
+2024-07-04 22:29:05,767 DEBUG   SenderThread:14312 [sender.py:send_request():406] send_request: defer
+2024-07-04 22:29:05,767 INFO    SenderThread:14312 [sender.py:send_request_defer():610] handle sender defer: 4
+2024-07-04 22:29:05,767 INFO    SenderThread:14312 [sender.py:transition_state():614] send defer: 5
+2024-07-04 22:29:05,767 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: defer
+2024-07-04 22:29:05,767 INFO    HandlerThread:14312 [handler.py:handle_request_defer():184] handle defer: 5
+2024-07-04 22:29:05,767 DEBUG   SenderThread:14312 [sender.py:send():379] send: summary
+2024-07-04 22:29:05,767 INFO    SenderThread:14312 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2024-07-04 22:29:05,767 DEBUG   SenderThread:14312 [sender.py:send_request():406] send_request: defer
+2024-07-04 22:29:05,767 INFO    SenderThread:14312 [sender.py:send_request_defer():610] handle sender defer: 5
+2024-07-04 22:29:05,770 INFO    SenderThread:14312 [sender.py:transition_state():614] send defer: 6
+2024-07-04 22:29:05,770 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: defer
+2024-07-04 22:29:05,770 INFO    HandlerThread:14312 [handler.py:handle_request_defer():184] handle defer: 6
+2024-07-04 22:29:05,770 DEBUG   SenderThread:14312 [sender.py:send_request():406] send_request: defer
+2024-07-04 22:29:05,770 INFO    SenderThread:14312 [sender.py:send_request_defer():610] handle sender defer: 6
+2024-07-04 22:29:05,774 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: status_report
+2024-07-04 22:29:05,895 INFO    Thread-16 :14312 [dir_watcher.py:_on_file_created():271] file/dir created: D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240704_222902-222qrfeu\files\wandb-summary.json
+2024-07-04 22:29:05,895 INFO    Thread-16 :14312 [dir_watcher.py:_on_file_created():271] file/dir created: D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240704_222902-222qrfeu\files\output.log
+2024-07-04 22:29:06,024 INFO    SenderThread:14312 [sender.py:transition_state():614] send defer: 7
+2024-07-04 22:29:06,024 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: defer
+2024-07-04 22:29:06,024 INFO    HandlerThread:14312 [handler.py:handle_request_defer():184] handle defer: 7
+2024-07-04 22:29:06,024 DEBUG   SenderThread:14312 [sender.py:send_request():406] send_request: defer
+2024-07-04 22:29:06,024 INFO    SenderThread:14312 [sender.py:send_request_defer():610] handle sender defer: 7
+2024-07-04 22:29:06,739 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: poll_exit
+2024-07-04 22:29:06,909 INFO    Thread-16 :14312 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240704_222902-222qrfeu\files\config.yaml
+2024-07-04 22:29:07,734 INFO    SenderThread:14312 [sender.py:transition_state():614] send defer: 8
+2024-07-04 22:29:07,734 DEBUG   SenderThread:14312 [sender.py:send_request():406] send_request: poll_exit
+2024-07-04 22:29:07,734 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: defer
+2024-07-04 22:29:07,734 INFO    HandlerThread:14312 [handler.py:handle_request_defer():184] handle defer: 8
+2024-07-04 22:29:07,734 DEBUG   SenderThread:14312 [sender.py:send_request():406] send_request: defer
+2024-07-04 22:29:07,734 INFO    SenderThread:14312 [sender.py:send_request_defer():610] handle sender defer: 8
+2024-07-04 22:29:07,734 INFO    SenderThread:14312 [job_builder.py:build():440] Attempting to build job artifact
+2024-07-04 22:29:07,735 INFO    SenderThread:14312 [job_builder.py:_get_source_type():569] is repo sourced job
+2024-07-04 22:29:07,746 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: poll_exit
+2024-07-04 22:29:07,776 INFO    SenderThread:14312 [job_builder.py:build():545] adding wandb-job metadata file
+2024-07-04 22:29:07,781 INFO    SenderThread:14312 [sender.py:transition_state():614] send defer: 9
+2024-07-04 22:29:07,782 DEBUG   SenderThread:14312 [sender.py:send_request():406] send_request: poll_exit
+2024-07-04 22:29:07,782 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: defer
+2024-07-04 22:29:07,782 DEBUG   SenderThread:14312 [sender.py:send():379] send: artifact
+2024-07-04 22:29:07,782 INFO    HandlerThread:14312 [handler.py:handle_request_defer():184] handle defer: 9
+2024-07-04 22:29:07,914 INFO    Thread-16 :14312 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240704_222902-222qrfeu\files\output.log
+2024-07-04 22:29:08,760 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: poll_exit
+2024-07-04 22:29:08,973 INFO    SenderThread:14312 [sender.py:send_artifact():1530] sent artifact job-https___github.com_justinvo277_-DSP391m-Forecasting-Financial-Time-Series-With-Transformer.git_train.py - {'id': 'QXJ0aWZhY3Q6OTQ0MDU2NjI2', 'state': 'COMMITTED', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjIwOTIwODg1NQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6OTQ0MDc3NzE5', 'versionIndex': 8}}}
+2024-07-04 22:29:08,973 DEBUG   SenderThread:14312 [sender.py:send_request():406] send_request: defer
+2024-07-04 22:29:08,973 INFO    SenderThread:14312 [sender.py:send_request_defer():610] handle sender defer: 9
+2024-07-04 22:29:08,973 INFO    SenderThread:14312 [dir_watcher.py:finish():358] shutting down directory watcher
+2024-07-04 22:29:09,925 INFO    SenderThread:14312 [dir_watcher.py:finish():388] scan: D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240704_222902-222qrfeu\files
+2024-07-04 22:29:09,925 INFO    SenderThread:14312 [dir_watcher.py:finish():402] scan save: D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240704_222902-222qrfeu\files\conda-environment.yaml conda-environment.yaml
+2024-07-04 22:29:09,926 INFO    SenderThread:14312 [dir_watcher.py:finish():402] scan save: D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240704_222902-222qrfeu\files\config.yaml config.yaml
+2024-07-04 22:29:09,926 INFO    SenderThread:14312 [dir_watcher.py:finish():402] scan save: D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240704_222902-222qrfeu\files\output.log output.log
+2024-07-04 22:29:09,927 INFO    SenderThread:14312 [dir_watcher.py:finish():402] scan save: D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240704_222902-222qrfeu\files\requirements.txt requirements.txt
+2024-07-04 22:29:09,928 INFO    SenderThread:14312 [dir_watcher.py:finish():402] scan save: D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240704_222902-222qrfeu\files\wandb-metadata.json wandb-metadata.json
+2024-07-04 22:29:09,928 INFO    SenderThread:14312 [dir_watcher.py:finish():402] scan save: D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240704_222902-222qrfeu\files\wandb-summary.json wandb-summary.json
+2024-07-04 22:29:09,933 INFO    SenderThread:14312 [sender.py:transition_state():614] send defer: 10
+2024-07-04 22:29:09,933 DEBUG   SenderThread:14312 [sender.py:send_request():406] send_request: poll_exit
+2024-07-04 22:29:09,933 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: defer
+2024-07-04 22:29:09,933 INFO    HandlerThread:14312 [handler.py:handle_request_defer():184] handle defer: 10
+2024-07-04 22:29:09,935 DEBUG   SenderThread:14312 [sender.py:send_request():406] send_request: defer
+2024-07-04 22:29:09,935 INFO    SenderThread:14312 [sender.py:send_request_defer():610] handle sender defer: 10
+2024-07-04 22:29:09,936 INFO    SenderThread:14312 [file_pusher.py:finish():169] shutting down file pusher
+2024-07-04 22:29:10,522 INFO    wandb-upload_0:14312 [upload_job.py:push():130] Uploaded file D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240704_222902-222qrfeu\files\config.yaml
+2024-07-04 22:29:10,766 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: poll_exit
+2024-07-04 22:29:10,766 DEBUG   SenderThread:14312 [sender.py:send_request():406] send_request: poll_exit
+2024-07-04 22:29:10,767 INFO    wandb-upload_1:14312 [upload_job.py:push():130] Uploaded file D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240704_222902-222qrfeu\files\output.log
+2024-07-04 22:29:10,814 INFO    wandb-upload_3:14312 [upload_job.py:push():130] Uploaded file D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240704_222902-222qrfeu\files\wandb-summary.json
+2024-07-04 22:29:10,848 INFO    wandb-upload_2:14312 [upload_job.py:push():130] Uploaded file D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240704_222902-222qrfeu\files\requirements.txt
+2024-07-04 22:29:11,061 INFO    Thread-15 (_thread_body):14312 [sender.py:transition_state():614] send defer: 11
+2024-07-04 22:29:11,062 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: defer
+2024-07-04 22:29:11,062 INFO    HandlerThread:14312 [handler.py:handle_request_defer():184] handle defer: 11
+2024-07-04 22:29:11,062 DEBUG   SenderThread:14312 [sender.py:send_request():406] send_request: defer
+2024-07-04 22:29:11,062 INFO    SenderThread:14312 [sender.py:send_request_defer():610] handle sender defer: 11
+2024-07-04 22:29:11,062 INFO    SenderThread:14312 [file_pusher.py:join():175] waiting for file pusher
+2024-07-04 22:29:11,062 INFO    SenderThread:14312 [sender.py:transition_state():614] send defer: 12
+2024-07-04 22:29:11,062 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: defer
+2024-07-04 22:29:11,063 INFO    HandlerThread:14312 [handler.py:handle_request_defer():184] handle defer: 12
+2024-07-04 22:29:11,063 DEBUG   SenderThread:14312 [sender.py:send_request():406] send_request: defer
+2024-07-04 22:29:11,063 INFO    SenderThread:14312 [sender.py:send_request_defer():610] handle sender defer: 12
+2024-07-04 22:29:11,063 INFO    SenderThread:14312 [file_stream.py:finish():601] file stream finish called
+2024-07-04 22:29:11,768 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: poll_exit
+2024-07-04 22:29:12,097 INFO    SenderThread:14312 [file_stream.py:finish():605] file stream finish is done
+2024-07-04 22:29:12,098 INFO    SenderThread:14312 [sender.py:transition_state():614] send defer: 13
+2024-07-04 22:29:12,098 DEBUG   SenderThread:14312 [sender.py:send_request():406] send_request: poll_exit
+2024-07-04 22:29:12,098 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: defer
+2024-07-04 22:29:12,098 INFO    HandlerThread:14312 [handler.py:handle_request_defer():184] handle defer: 13
+2024-07-04 22:29:12,099 DEBUG   SenderThread:14312 [sender.py:send_request():406] send_request: defer
+2024-07-04 22:29:12,099 INFO    SenderThread:14312 [sender.py:send_request_defer():610] handle sender defer: 13
+2024-07-04 22:29:12,099 INFO    SenderThread:14312 [sender.py:transition_state():614] send defer: 14
+2024-07-04 22:29:12,099 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: defer
+2024-07-04 22:29:12,099 DEBUG   SenderThread:14312 [sender.py:send():379] send: final
+2024-07-04 22:29:12,099 INFO    HandlerThread:14312 [handler.py:handle_request_defer():184] handle defer: 14
+2024-07-04 22:29:12,099 DEBUG   SenderThread:14312 [sender.py:send():379] send: footer
+2024-07-04 22:29:12,099 DEBUG   SenderThread:14312 [sender.py:send_request():406] send_request: defer
+2024-07-04 22:29:12,099 INFO    SenderThread:14312 [sender.py:send_request_defer():610] handle sender defer: 14
+2024-07-04 22:29:12,100 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: poll_exit
+2024-07-04 22:29:12,100 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: server_info
+2024-07-04 22:29:12,100 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: poll_exit
+2024-07-04 22:29:12,100 DEBUG   SenderThread:14312 [sender.py:send_request():406] send_request: poll_exit
+2024-07-04 22:29:12,100 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: get_summary
+2024-07-04 22:29:12,100 DEBUG   SenderThread:14312 [sender.py:send_request():406] send_request: server_info
+2024-07-04 22:29:12,102 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: sampled_history
+2024-07-04 22:29:12,103 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-04 22:29:12,322 DEBUG   SenderThread:14312 [sender.py:send_request():406] send_request: poll_exit
+2024-07-04 22:29:12,322 INFO    MainThread:14312 [wandb_run.py:_footer_history_summary_info():3988] rendering history
+2024-07-04 22:29:12,322 INFO    MainThread:14312 [wandb_run.py:_footer_history_summary_info():4020] rendering summary
+2024-07-04 22:29:12,322 INFO    MainThread:14312 [wandb_run.py:_footer_sync_info():3947] logging synced files
+2024-07-04 22:29:12,323 DEBUG   HandlerThread:14312 [handler.py:handle_request():158] handle_request: shutdown
+2024-07-04 22:29:12,323 INFO    HandlerThread:14312 [handler.py:finish():882] shutting down handler
+2024-07-04 22:29:13,108 INFO    WriterThread:14312 [datastore.py:close():296] close: D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\wandb\run-20240704_222902-222qrfeu\run-222qrfeu.wandb
+2024-07-04 22:29:13,335 INFO    SenderThread:14312 [sender.py:finish():1608] shutting down sender
+2024-07-04 22:29:13,335 INFO    SenderThread:14312 [file_pusher.py:finish():169] shutting down file pusher
+2024-07-04 22:29:13,335 INFO    SenderThread:14312 [file_pusher.py:join():175] waiting for file pusher

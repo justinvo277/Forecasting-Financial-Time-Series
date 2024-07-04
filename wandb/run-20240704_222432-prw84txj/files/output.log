@@ -1,0 +1,24 @@
+D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\preprocessing_data\utils.py:70: FutureWarning: DataFrame.fillna with 'method' is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.
+  dataFrame = dataFrame.fillna(method='ffill')
+D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\preprocessing_data\utils.py:74: FutureWarning: DataFrame.fillna with 'method' is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.
+  dataFrame = dataFrame.fillna(method='bfill')
+  0%|                                                                                          | 0/113 [00:00<?, ?it/s]
+  0%|                                                                                          | 0/113 [00:04<?, ?it/s]
+Traceback (most recent call last):
+  File "D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\train.py", line 112, in <module>
+    loss = train_loop(model=model, datatrain=train_data, opt=opt, criterion=huber_loss,
+  File "D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\utils.py", line 28, in train_loop
+    output = model(src=src, tgt=trg, src_mask=src_mask, tgt_mask=tgt_mask)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "D:\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\transformer_model.py", line 152, in forward
+    src = self.encoder_input_layer(src) # src shape: [batch_size, src length, dim_val] regardless of number of input features
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\linear.py", line 116, in forward
+    return F.linear(input, self.weight, self.bias)
+KeyboardInterrupt
