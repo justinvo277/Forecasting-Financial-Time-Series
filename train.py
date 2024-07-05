@@ -74,8 +74,8 @@ if __name__ == "__main__":
         config.batch_size = args.batch_size
 
         #Read and preprocessing dataset;
-        dataset_raw = format_Dataframes(data_path=args.data_path, type_file=args.datafile_type)
-        dataset = preprocessing_dataframe(dataset_raw, fillna='ffill', scale="std")
+        dataset_raw = format_Dataframes(data_path=args.data_path, type_file=args.datafile_type, data_name="VCB")
+        dataset = preprocessing_dataframe(dataset_raw, fillna='ffill', scale="std", data_name="VCB")
         dataset = winsorize_dataframe(dataset)
         dataset_train, dataset_test = split_data(dataset, num_rows=args.num_rows)
         dataset_train = np.array(dataset_train)

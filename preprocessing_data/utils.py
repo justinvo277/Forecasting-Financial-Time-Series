@@ -5,7 +5,7 @@ from scipy.stats.mstats import winsorize
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
 
-def format_Dataframes(data_path:str=None, type_file:str="csv") -> pd.DataFrame:
+def format_Dataframes(data_path:str=None, data_name:str="FPT", type_file:str="csv") -> pd.DataFrame:
 
     '''
     data_path: Dataset path.
@@ -24,9 +24,15 @@ def format_Dataframes(data_path:str=None, type_file:str="csv") -> pd.DataFrame:
         else:
             print("Opening this file type is not supported !!")
 
-        column_names = ["Tên", "Ngày", 'Đóng cửa', 'Điều chỉnh', "Thay đổi", "Thay đổi 1", "%", 
-        'Khối lượng (Khớp lệnh)', 'Giá trị (Khớp lệnh)', 'Khối lượng (Thỏa thuận)', 'Giá trị (Thỏa thuận)', 
-        'Mở cửa', 'Cao nhất', 'Thấp nhất']
+        column_names = None
+        if data_name == "FPT" or data_name == 'VNINDEX':
+            column_names = ["Tên", "Ngày", 'Đóng cửa', 'Điều chỉnh', "Thay đổi", "Thay đổi 1", "%", 
+            'Khối lượng (Khớp lệnh)', 'Giá trị (Khớp lệnh)', 'Khối lượng (Thỏa thuận)', 'Giá trị (Thỏa thuận)', 
+            'Mở cửa', 'Cao nhất', 'Thấp nhất']
+        elif data_name == "VCB":
+            column_names = ['Tên', 'Ngày', 'Đóng cửa', 'Unnamed: 3', 'Thay đổi',
+            'Thay đổi.1', 'GD khớp lệnh', 'Unnamed: 7', 'GD thỏa thuận',
+            'Unnamed: 9', 'Mở cửa', 'Cao nhất', 'Thấp nhất']
 
         new_column_names = df.iloc[0]
         df = df[1:]
@@ -34,13 +40,19 @@ def format_Dataframes(data_path:str=None, type_file:str="csv") -> pd.DataFrame:
         df.reset_index(drop=True, inplace=True)
         df.columns = column_names
 
-        for name in df.columns:
-            if name not in ["Tên", "Ngày", 'Điều chỉnh', "Thay đổi", "Thay đổi 1", "%"]:
-                df[name] =  pd.to_numeric(df[name], errors='coerce')
+        if data_name == "FPT":
+            for name in df.columns:
+                if name not in ["Tên", "Ngày", 'Điều chỉnh', "Thay đổi", "Thay đổi 1", "%"]:
+                    df[name] =  pd.to_numeric(df[name], errors='coerce')
+        elif data_name == "VCB":
+            df.drop(columns=['Unnamed: 3', 'Thay đổi',
+            'Thay đổi.1', 'GD khớp lệnh', 'Unnamed: 7', 'GD thỏa thuận',
+            'Unnamed: 9'], inplace=True)
+
         return df
 
 
-def preprocessing_dataframe(dataFrame: pd.DataFrame, fillna: str="mean", scale: str=None) -> pd.DataFrame:
+def preprocessing_dataframe(dataFrame: pd.DataFrame, fillna: str="mean", scale: str=None, data_name:str=None) -> pd.DataFrame:
     '''
     dataFrame: A data frame is data after reading from a csv file and having run it through the format_Dataframes() function.
     fillna: Type of fill data NaN, Null or None; [None, Zero, Mean, Linear, Ffill].
@@ -48,8 +60,10 @@ def preprocessing_dataframe(dataFrame: pd.DataFrame, fillna: str="mean", scale: 
     '''
 
     # Drop unnecessary columns
-    dataFrame.drop(columns=['Điều chỉnh', 'Thay đổi', 'Thay đổi 1', '%', 'Khối lượng (Khớp lệnh)',
-                            "Giá trị (Khớp lệnh)", "Khối lượng (Thỏa thuận)", "Giá trị (Thỏa thuận)"], inplace=True)
+    if data_name == None:
+        dataFrame.drop(columns=['Điều chỉnh', 'Thay đổi', 'Thay đổi 1', '%', 'Khối lượng (Khớp lệnh)',
+                                "Giá trị (Khớp lệnh)", "Khối lượng (Thỏa thuận)", "Giá trị (Thỏa thuận)"], inplace=True)
+
     # Replace "NaN" strings with np.nan
     dataFrame.replace("NaN", np.nan, inplace=True)
     
@@ -101,7 +115,6 @@ def split_data(df: pd.DataFrame, num_rows: int) -> tuple:
     df_train = df.iloc[:-num_rows]
     df_test =  df.iloc[-num_rows:]
     return df_train, df_test
-
 
 def remove_outliers(df: pd.DataFrame, columns: list=['Đóng cửa', 'Khối lượng (Khớp lệnh)', 'Giá trị (Khớp lệnh)', 
     'Khối lượng (Thỏa thuận)', 'Giá trị (Thỏa thuận)', 'Mở cửa', 'Cao nhất', 'Thấp nhất']):
