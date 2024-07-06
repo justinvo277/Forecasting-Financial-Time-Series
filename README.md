@@ -6,11 +6,11 @@ In today's digital age, financial data has emerged as a critical asset for inves
 
 
 ### Installation
-1. Clone the SnakeGameAI repository:
+1. Clone the repository:
    ```bash
    git clone https://github.com/justinvo277/Forecasting-Financial-Time-Series.git
    ```
-2. Navigate to the SnakeGameAI directory:
+2. Navigate to directory:
    ```bash
     cd Forecasting-Financial-Time-Series
    ```
