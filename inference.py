@@ -1,23 +1,13 @@
-import torch.nn as nn 
 import torch
 import utils
 import torch.utils
+import pandas as pd
+import torch.nn as nn 
 from tqdm import tqdm
 
-
-def run_encoder_decoder_inference(
-    model: nn.Module,
-    datatrain: torch.utils.data.Dataset,
-    criterion_list: dict, 
-    forecast_window: int,
-    device: torch.cuda,
-    ) -> torch.Tensor:
+def run_encoder_decoder_inference( model: nn.Module, datatrain: torch.utils.data.Dataset, forecast_window: int, device: torch.cuda,) -> torch.Tensor:
 
     loop = tqdm(datatrain, leave=True)
-    total_loss_dict = {}
-
-    for name, criterion in criterion_list:
-        total_loss_dict[name] = 0.0
     
     model.eval()
     with torch.no_grad():
@@ -83,11 +73,4 @@ def run_encoder_decoder_inference(
 
             # Make final prediction
             final_prediction = model(src, trg, src_mask, tgt_mask)
-
-            for name, criterion in criterion_list:
-                loss = criterion(final_prediction, trg_y)
-                total_loss_dict[name] += loss.item()
-        for name_loss in total_loss_dict:
-            total_loss_dict[name_loss] /= len(datatrain)
-
-        return total_loss_dict
+            print(final_prediction)

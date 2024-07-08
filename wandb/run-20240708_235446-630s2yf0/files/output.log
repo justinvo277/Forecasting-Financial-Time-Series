@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "D:\Forecasting-Financial-Time-Series\train.py", line 77, in <module>
+    dataset_raw = format_Dataframes(data_path=args.data_path, type_file=args.datafile_type, data_name="VCB")
+  File "D:\Forecasting-Financial-Time-Series\preprocessing_data\utils.py", line 41, in format_Dataframes
+    df.columns = column_names
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\pandas\core\generic.py", line 6313, in __setattr__
+    return object.__setattr__(self, name, value)
+  File "properties.pyx", line 69, in pandas._libs.properties.AxisProperty.__set__
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\pandas\core\generic.py", line 814, in _set_axis
+    self._mgr.set_axis(axis, labels)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\pandas\core\internals\managers.py", line 238, in set_axis
+    self._validate_set_axis(axis, new_labels)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\pandas\core\internals\base.py", line 98, in _validate_set_axis
+    raise ValueError(
+ValueError: Length mismatch: Expected axis has 14 elements, new values have 13 elements

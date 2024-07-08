@@ -1,0 +1,22 @@
+
+  0%|                                                                                           | 0/57 [00:00<?, ?it/s]
+  0%|                                                                                           | 0/57 [00:00<?, ?it/s]D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\functional.py:5504: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at ..\aten\src\ATen\native\transformers\cuda\sdp_utils.cpp:455.)
+  attn_output = scaled_dot_product_attention(q, k, v, attn_mask, dropout_p, is_causal)
+
+100%|███████████████████████████████████████████████████████████████| 57/57 [00:10<00:00,  5.32it/s, Loss_Train=0.0189]
+ 32%|███████████████████▉                                           | 18/57 [00:01<00:02, 17.22it/s, Loss_Train=0.0238]
+[RESULT TRAINING PHASE]: Loss Train: 0.05801726358109399
+
+ 96%|████████████████████████████████████████████████████████████▊  | 55/57 [00:03<00:00, 17.26it/s, Loss_Train=0.0192]
+Traceback (most recent call last):
+  File "D:\Forecasting-Financial-Time-Series\train.py", line 142, in <module>
+    loss = train_loop(model=model, datatrain=train_data, opt=opt, criterion=huber_loss,
+  File "D:\Forecasting-Financial-Time-Series\utils.py", line 31, in train_loop
+    loss.backward()
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\_tensor.py", line 525, in backward
+    torch.autograd.backward(
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\autograd\__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\autograd\graph.py", line 744, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
