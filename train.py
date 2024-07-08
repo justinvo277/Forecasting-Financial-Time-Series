@@ -81,7 +81,7 @@ if __name__ == "__main__":
         dataset_test = np.array(dataset_test)
 
         #Dataloader;
-        indices_data_train =get_indices_entire_sequence(data=dataset_train, window_size=32, step_size=1)
+        indices_data_train =get_indices_entire_sequence(data=dataset_train, window_size=14, step_size=1)
         dataloader_train = TransformerDataset(
             data=dataset_train,
             indices= indices_data_train,
@@ -91,7 +91,7 @@ if __name__ == "__main__":
             predict_full=False) #num_predicted_features=8 and predict_full=True if want to predict full
         train_data = DataLoader(dataset=dataloader_train, batch_size=config.batch_size)
 
-        indices_data_test =get_indices_entire_sequence(data=dataset_test, window_size=32, step_size=1)
+        indices_data_test =get_indices_entire_sequence(data=dataset_test, window_size=14, step_size=1)
         dataloader_test = TransformerDataset(
             data=dataset_test,
             indices= indices_data_test,
@@ -104,7 +104,7 @@ if __name__ == "__main__":
         #Model
         model = TimeSeriesTransformer(
             input_size=4,
-            dec_seq_len=30,
+            dec_seq_len=32,
             batch_first=args.batch_first,
             n_decoder_layers=config.n_stack_of_layers,
             n_encoder_layers=config.n_stack_of_layers,

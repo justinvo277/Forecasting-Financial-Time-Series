@@ -74,7 +74,7 @@ if __name__ == "__main__":
     print("Model")
     model = TimeSeriesTransformer(
             input_size=4,
-            dec_seq_len=30,
+            dec_seq_len=32,
             batch_first=args.batch_first,
             n_decoder_layers=4,
             n_encoder_layers=4,
