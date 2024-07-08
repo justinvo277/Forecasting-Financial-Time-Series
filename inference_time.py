@@ -48,6 +48,8 @@ if __name__ == "__main__":
     df = pd.read_excel(save_path, header=None)
     df.insert(0, 'Name', 'VCB')
     df.to_excel(save_path, index=False)
+    x_max = df[1].max()
+    x_min = df[1].min()
     print(df)
 
     print("\n")
@@ -87,5 +89,9 @@ if __name__ == "__main__":
     print("Prediction")
     '''
     Write your code here;
-    run_encoder_decoder_inference(model=model, datatrain=data, forecast_window=4, device=DEVICE)
+    predict_thenextday = run_encoder_decoder_inference(model=model, datatrain=data, forecast_window=4, device=DEVICE)
+    print(f"Giá Đóng: {predict_thenextday*(x_max - x_min) + x_min}")
     '''
+
+    print("\n")
+    print("Done !!!")
