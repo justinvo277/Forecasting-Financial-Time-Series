@@ -2,6 +2,7 @@
 import os
 import torch
 import argparse
+import numpy as np
 import pandas as pd
 
 from torch.utils.data import DataLoader
@@ -18,10 +19,10 @@ parser = argparse.ArgumentParser(description="Config")
 
 parser.add_argument("--url", type=str, help="Link of dataset", default=None)
 parser.add_argument("--num_pages", type=int, help="Number page of dataset", default=None)
-parser.add_argument("--save_dir", type=str, help="Save data in your local", default=r"D:\Forecasting-Financial-Time-Series\craw_data")
+parser.add_argument("--save_dir", type=str, help="Save data in your local", default=r"D:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\craw_data")
 parser.add_argument("--data_name", type=str, help="Data name", default=None)
 parser.add_argument("--batch_first", type=bool, help="Type batch size of dataloader", default=True)
-parser.add_argument("--pretrained", type=str, help="Pretrained path", default=None)
+parser.add_argument("--pretrained", type=str, help="Pretrained path", default=r"D:\Major8\-DSP391m-Forecasting-Financial-Time-Series-With-Transformer\checkpoint\best.pth")
 parser.add_argument("--num_predicted_features", type=int, help="Num output feauture", default=1)
 
 args = parser.parse_args()
@@ -68,6 +69,18 @@ if __name__ == "__main__":
     '''
     Write your code here;
     '''
+    dataset = winsorize_dataframe(df_new)
+    dataset_test = np.array(dataset)
+
+    indices_data_test =get_indices_entire_sequence(data=dataset_test, window_size=33, step_size=1)
+    dataloader_test = TransformerDataset(
+        data=dataset_test,
+        indices= indices_data_test,
+        enc_seq_len= 32,
+        dec_seq_len= 1,
+        target_seq_len= 1,
+        predict_full=False) #num_predicted_features=8 and predict_full=True if want to predict full
+    test_data = DataLoader(dataset=dataloader_test, batch_size=64)
     print("===== Dataloader is completed =====")
 
     print("\n")
@@ -92,6 +105,9 @@ if __name__ == "__main__":
     predict_thenextday = run_encoder_decoder_inference(model=model, datatrain=data, forecast_window=4, device=DEVICE)
     print(f"Giá Đóng: {predict_thenextday*(x_max - x_min) + x_min}")
     '''
+    predict = run_encoder_decoder_inference(model=model, datatrain=test_data, forecast_window=1, device=DEVICE)
+    print(f"Giá Đóng: {predict*(x_max - x_min) + x_min}")
+
 
     print("\n")
     print("Done !!!")

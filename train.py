@@ -11,6 +11,7 @@ from dataloader import TransformerDataset
 from transformer_model import TimeSeriesTransformer
 from preprocessing_data.utils import format_Dataframes, preprocessing_dataframe, split_data, remove_outliers, winsorize_dataframe
 from utils import get_indices_entire_sequence, generate_square_subsequent_mask, train_loop, validation_loop, EarlyStopping
+from inference import run_encoder_decoder_inference
 
 
 parser = argparse.ArgumentParser(description="Config")
