@@ -14,7 +14,6 @@ from utils import get_indices_entire_sequence, generate_square_subsequent_mask, 
 
 
 parser = argparse.ArgumentParser(description="Config")
-<<<<<<< HEAD
 parser.add_argument("--data_path", type=str, help="Path of dataset", default=r"/kaggle/input/el-pulga/-DSP391m-Forecasting-Financial-Time-Series-With-Transformer/craw_data/VNINDEX_stock.xlsx")
 parser.add_argument("--log_path", type=str, help="save log for training", default=r"/kaggle/input/el-pulga/-DSP391m-Forecasting-Financial-Time-Series-With-Transformer/log")
 parser.add_argument("--checkpoint", type=str, help="folder to save checkpoint", default=r"/kaggle/input/el-pulga/-DSP391m-Forecasting-Financial-Time-Series-With-Transformer/checkpoint")
@@ -24,16 +23,6 @@ parser.add_argument("--num_rows", type=int, help="Rows of test dataset", default
 parser.add_argument("--batch_size", type=float, help="Batch size of dataset train, test and val", default=64)
 # parser.add_argument("--learning_rate", type=float, help="Learning rate for training model", default=1e-5)
 parser.add_argument("--k_folds", type=int, help="Numbers of folds for cross-validation", default=5)
-=======
-parser.add_argument("--data_path", type=str, help="Path of dataset", default=r"D:\Forecasting-Financial-Time-Series\craw_data\FPT_stock.xlsx")
-parser.add_argument("--log_path", type=str, help="save log for training", default=r"D:\Forecasting-Financial-Time-Series\log")
-parser.add_argument("--checkpoint", type=str, help="folder to save checkpoint", default=r"D:\Forecasting-Financial-Time-Series\checkpoint")
-parser.add_argument("--datafile_type", type=str, help="csv, xlsx, ....", default="xlsx")
-parser.add_argument("--num_rows", type=int, help="Rows of test dataset", default=720)
-
-parser.add_argument("--batch_size", type=float, help="Batch size of dataset train, test and val", default=128)
-parser.add_argument("--learning_rate", type=float, help="Learning rate for training model", default=1e-5)
->>>>>>> c570ed377f61e8597a26cde4bfad627d53ecd4cd
 parser.add_argument("--batch_first", type=bool, help="Type batch size of dataloader", default=True)
 parser.add_argument("--max_viz", type=int, help="After n epochs will validation model", default=5)
 parser.add_argument("--num_predicted_features", type=int, help="number of output", default=1)
@@ -99,7 +88,6 @@ if __name__ == "__main__":
         for fold, (train_idx, val_idx) in enumerate(kf.split(indices_data_train)):
             print(f"Fold {fold + 1}/{args.k_folds}")
 
-<<<<<<< HEAD
             wandb.login(key="39af6effd799f393f92bb9698e6e29404041b445")
             wandb.init(project="DSP391m-project")
             config = wandb.config
@@ -107,15 +95,6 @@ if __name__ == "__main__":
             # config.learning_rate = args.learning_rate
             config.epochs = args.epochs
             config.batch_size = args.batch_size
-=======
-        #Read and preprocessing dataset;
-        dataset_raw = format_Dataframes(data_path=args.data_path, type_file=args.datafile_type)
-        dataset = preprocessing_dataframe(dataset_raw, fillna='ffill')
-        dataset = winsorize_dataframe(dataset)
-        dataset_train, dataset_test = split_data(dataset, num_rows=args.num_rows)
-        dataset_train = np.array(dataset_train)
-        dataset_test = np.array(dataset_test)
->>>>>>> c570ed377f61e8597a26cde4bfad627d53ecd4cd
 
             #Create train and validation dataloader for fold;
             train_subset = [indices_data_train[i] for i in train_idx]
@@ -137,22 +116,9 @@ if __name__ == "__main__":
                 target_seq_len= 4,
                 predict_full=False) #num_predicted_features=8 and predict_full=True if want to predict full
 
-<<<<<<< HEAD
             # Create dataloaders for training and validation
             train_data = DataLoader(dataset=dataloader_train, batch_size=config.batch_size)
             val_data = DataLoader(dataset=dataloader_test, batch_size=config.batch_size)
-=======
-        #Model
-        model = TimeSeriesTransformer(
-            input_size=4,
-            dec_seq_len=32,
-            batch_first=args.batch_first,
-            n_decoder_layers=config.n_stack_of_layers,
-            n_encoder_layers=config.n_stack_of_layers,
-            num_predicted_features=args.num_predicted_features)  #num_predicted_features=8 and predict_full=True if want to predict full
-        model = model.float()
-        model = model.to(DEVICE)
->>>>>>> c570ed377f61e8597a26cde4bfad627d53ecd4cd
 
             #Model
             model = TimeSeriesTransformer(
@@ -196,7 +162,6 @@ if __name__ == "__main__":
                 print(f"[RESULT TRAINING PHASE]: Loss Train: {loss['Loss Train']}")
                 wandb.log({"TRAIN LOSS": loss['Loss Train']})
 
-<<<<<<< HEAD
                 if (epoch+1) % args.max_viz == 0:
                     print(f"[{epoch+1}/{config.epochs}: VALIDATION PHASE]")
                     loss_dict = run_encoder_decoder_inference(model=model, datatrain=val_data, forecast_window=4,
@@ -205,15 +170,6 @@ if __name__ == "__main__":
                     print(f"[RESULT VALIDATION PHASE]: MSE: {loss_dict['mse']} | MAE: {loss_dict['mae']} | HUBER: {loss_dict['huber']}")
                     early_stopping(val_loss, model)
                     wandb.log({"VALIDATION LOSS MSE": loss_dict['mse'], "VALIDATION LOSS MAE": loss_dict['mae'], "VALIDATION LOSS HUBER": loss_dict['huber']})
-=======
-            if (epoch+1) % args.max_viz == 0:
-                print(f"[{epoch+1}/{config.epochs}: VALIDATION PHASE]")
-                loss_dict = validation_loop(model=model, datatest=test_data, criterion_list=criterion_list, src_mask=src_mask, tgt_mask=tgt_mask, device=DEVICE)
-                val_loss = loss_dict['mse']
-                print(f"[RESULT VALIDATION PHASE]: MSE: {loss_dict['mse']} | MAE: {loss_dict['mae']} | HUBER: {loss_dict['huber']}")
-                early_stopping(val_loss, model)
-                wandb.log({"VALIDATION LOSS MSE": loss_dict['mse'], "VALIDATION LOSS MAE": loss_dict['mae'], "VALIDATION LOSS HUBER": loss_dict['huber']})
->>>>>>> c570ed377f61e8597a26cde4bfad627d53ecd4cd
 
                 if early_stopping.early_stop:
                     print("Early stopping")
