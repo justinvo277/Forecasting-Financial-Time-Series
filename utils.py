@@ -44,10 +44,10 @@ def train_loop(model: torch.nn, datatrain: torch.utils.data.Dataset, opt: torch.
     return total_loss_dict
 
 
-def validation_loop(model: torch.nn, datatrain: torch.utils.data.Dataset, criterion_list: dict, 
+def validation_loop(model: torch.nn, datatest: torch.utils.data.Dataset, criterion_list: dict, 
     src_mask: torch.tensor, tgt_mask: torch.tensor, device: torch.cuda) -> dict:
 
-    loop = tqdm(datatrain, leave=True)
+    loop = tqdm(datatest, leave=True)
     total_loss_dict = {}
 
     for name, criterion in criterion_list:
@@ -69,7 +69,7 @@ def validation_loop(model: torch.nn, datatrain: torch.utils.data.Dataset, criter
             total_loss_dict[name] += loss.item()
         
     for name_loss in total_loss_dict:
-        total_loss_dict[name_loss] /= len(datatrain)
+        total_loss_dict[name_loss] /= len(datatest)
 
     return total_loss_dict
 

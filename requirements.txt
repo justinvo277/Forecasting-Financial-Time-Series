@@ -1,6 +1,7 @@
 scipy
+wandb
 seaborn
+selenium
 matplotlib
 tensorflow
 scikit-learn
-wandb

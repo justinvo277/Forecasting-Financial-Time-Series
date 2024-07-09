@@ -1,0 +1,23 @@
+
+[1/300: TRAINING PHASE]
+  0%|                                                                                                                               | 0/29 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "D:\Forecasting-Financial-Time-Series\train.py", line 141, in <module>
+    loss = train_loop(model=model, datatrain=train_data, opt=opt, criterion=huber_loss,
+  File "D:\Forecasting-Financial-Time-Series\utils.py", line 18, in train_loop
+    for batch_idx, (src, trg, trg_y) in enumerate(loop):
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\tqdm\std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\utils\data\dataloader.py", line 631, in __next__
+    data = self._next_data()
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\utils\data\dataloader.py", line 675, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\utils\data\_utils\fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\utils\data\_utils\fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "D:\Forecasting-Financial-Time-Series\dataloader.py", line 71, in __getitem__
+    src, trg, trg_y = self.get_src_trg(
+  File "D:\Forecasting-Financial-Time-Series\dataloader.py", line 111, in get_src_trg
+    assert len(sequence) == enc_seq_len + target_seq_len, "Sequence length does not equal (input length + target length)"
+AssertionError: Sequence length does not equal (input length + target length)

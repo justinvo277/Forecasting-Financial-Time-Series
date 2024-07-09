@@ -1,0 +1,39 @@
+
+[1/300: TRAINING PHASE]
+  0%|                                                                                                                               | 0/29 [00:00<?, ?it/s]D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\functional.py:5504: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at ..\aten\src\ATen\native\transformers\cuda\sdp_utils.cpp:455.)
+  attn_output = scaled_dot_product_attention(q, k, v, attn_mask, dropout_p, is_causal)
+  0%|                                                                                                                               | 0/29 [00:02<?, ?it/s]
+Traceback (most recent call last):
+  File "D:\Forecasting-Financial-Time-Series\train.py", line 141, in <module>
+    loss = train_loop(model=model, datatrain=train_data, opt=opt, criterion=huber_loss,
+  File "D:\Forecasting-Financial-Time-Series\utils.py", line 28, in train_loop
+    output = model(src=src, tgt=trg, src_mask=src_mask, tgt_mask=tgt_mask)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "D:\Forecasting-Financial-Time-Series\transformer_model.py", line 178, in forward
+    decoder_output = self.decoder(
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\transformer.py", line 494, in forward
+    output = mod(output, memory, tgt_mask=tgt_mask,
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\transformer.py", line 890, in forward
+    x = self.norm1(x + self._sa_block(x, tgt_mask, tgt_key_padding_mask, tgt_is_causal))
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\transformer.py", line 899, in _sa_block
+    x = self.self_attn(x, x, x,
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\modules\activation.py", line 1266, in forward
+    attn_output, attn_output_weights = F.multi_head_attention_forward(
+  File "D:\Anaconda\envs\dsp391m\lib\site-packages\torch\nn\functional.py", line 5382, in multi_head_attention_forward
+    raise RuntimeError(f"The shape of the 2D attn_mask is {attn_mask.shape}, but should be {correct_2d_size}.")
+RuntimeError: The shape of the 2D attn_mask is torch.Size([4, 4]), but should be (1, 1).
